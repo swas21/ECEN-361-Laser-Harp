@@ -15,8 +15,8 @@ enum tranposition__octave {
 	OCTAVE_3 = 2,
 	OCTAVE_4 = 3,
 	OCTAVE_5 = 4,
-	OCTAVE_6 = 6,
-	OCTAVE_7 = 7
+	OCTAVE_6 = 5,
+	OCTAVE_7 = 6
 
 };
 // Local Function Variables Variables
@@ -160,7 +160,9 @@ void update_note_tables(){
 	current_B_SAMPLES = B_SAMPLES[activeOctave];
 
 }
+
 int tranposition__note_update() {
+
 
 	/****************************************************************
 		 This first section of Code is to handle the reseting of each index.

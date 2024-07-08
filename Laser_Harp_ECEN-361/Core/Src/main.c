@@ -155,8 +155,8 @@ int main(void)
 	  if(HAL_GPIO_ReadPin(UP_BTN_GPIO_Port, UP_BTN_Pin)){
 		  tranposition__increment_octave();
 	  }
-
-	  if(HAL_GPIO_ReadPin(DOWN_BTN_GPIO_Port, DOWN_BTN_Pin)){
+	  int val = HAL_GPIO_ReadPin(DOWN_BTN_GPIO_Port, DOWN_BTN_Pin);
+	  if(val){
 	  		  tranposition__decrement_octave();
 	  	  }
 
@@ -516,8 +516,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim == &htim15 )
   {
-	  int wave = tranposition__note_update();
+	  //Disable the IRQ
+	  //HAL_TIM_Base_Stop(htim);
+	  int wave = tranposition__note_update(&htim15);
 	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, wave);
+	  //HAL_TIM_Base_Start_IT(&htim15);
   }
 }
 /* USER CODE END 4 */
