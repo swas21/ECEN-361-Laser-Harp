@@ -73,6 +73,7 @@ DAC_HandleTypeDef hdac1;
 
 I2C_HandleTypeDef hi2c1;
 
+TIM_HandleTypeDef htim7;
 TIM_HandleTypeDef htim15;
 
 UART_HandleTypeDef huart2;
@@ -84,6 +85,8 @@ Using the above stated define we can thats notes data from the list*/
 int index[] = {1,0,0,0,0,0,0,0,0,0,0,0};
 int active[] = {1,0,0,0,0,0,0,0,0,0,0,0};
 
+int decay_index = 0;
+float decay_value = 1;
 //char screen_out[] ={"H","e","l","l","o"};
 
 
@@ -97,6 +100,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_DAC1_Init(void);
 static void MX_TIM15_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_TIM7_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -138,6 +142,7 @@ int main(void)
   MX_DAC1_Init();
   MX_TIM15_Init();
   MX_I2C1_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
 
   HAL_TIM_Base_Start_IT(&htim15); // Start the Music Interrupt Timer
@@ -312,6 +317,44 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief TIM7 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM7_Init(void)
+{
+
+  /* USER CODE BEGIN TIM7_Init 0 */
+
+  /* USER CODE END TIM7_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM7_Init 1 */
+
+  /* USER CODE END TIM7_Init 1 */
+  htim7.Instance = TIM7;
+  htim7.Init.Prescaler = 3200-1;
+  htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim7.Init.Period = 100-1;
+  htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim7, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM7_Init 2 */
+
+  /* USER CODE END TIM7_Init 2 */
 
 }
 
@@ -515,14 +558,30 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 // Callback: timer has rolled over
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
+
+  //timer for sustain value update at 25kHz sample rate
+  if(htim == &htim7)
+  {
+	  if(decay_index == 2500-1)
+	  {
+		  decay_index = 0;
+	  }
+
+	  decay_value = decay_table[decay_index];
+	  decay_index++;
+  }
+
+  //timer for sinewave output at 1Mhz sample rate
   if (htim == &htim15 )
   {
 	  //Disable the IRQ
 	  //HAL_TIM_Base_Stop(htim);
-	  int wave = tranposition__note_update(&htim15);
+	  int wave = tranposition__note_update(&htim15) * decay_value;
 	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, wave);
 	  //HAL_TIM_Base_Start_IT(&htim15);
   }
+
+
 }
 /* USER CODE END 4 */
 
