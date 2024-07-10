@@ -1,0 +1,4 @@
+../Core/Src/tranposition.c:57:6:tranposition__increment_octave	8	static
+../Core/Src/tranposition.c:93:6:tranposition__decrement_octave	8	static
+../Core/Src/tranposition.c:129:6:update_note_tables	4	static
+../Core/Src/tranposition.c:164:5:tranposition__note_update	16	static

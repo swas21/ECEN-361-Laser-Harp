@@ -1,0 +1,28 @@
+#ifndef MENU_H
+#define MENU_H
+
+/* Button pins */
+#define BUTTON_UP_PIN GPIO_PIN_7
+#define BUTTON_DOWN_PIN GPIO_PIN_6
+#define BUTTON_LEFT_PIN GPIO_PIN_5
+#define BUTTON_RIGHT_PIN GPIO_PIN_4
+#define BUTTON_GPIO_PORT GPIOB
+
+typedef enum {
+    MENU_ITEM_OCTAVE,
+    MENU_ITEM_INSTRUMENT,
+    MENU_ITEM_ECHO_DELAY,
+    MENU_ITEM_SUSTAIN,
+	MENU_ITEM_TRANSPOSITION,
+	MENU_ITEM_COUNT
+} MenuItem;
+
+void menu_init(void);
+void menu_handle_button_up(void);
+void menu_handle_button_down(void);
+void menu_handle_button_left(void);
+void menu_handle_button_right(void);
+void menu_update_display(void);
+void pull_buttons(void);
+
+#endif // MENU_H
