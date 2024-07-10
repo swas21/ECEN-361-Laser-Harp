@@ -34,6 +34,7 @@
 //#include "sine_tables.h"
 #include "tranposition.h"
 #include "I2C_commands.h"
+#include "exponential_decay_table.h"
 
 /* USER CODE END Includes */
 
