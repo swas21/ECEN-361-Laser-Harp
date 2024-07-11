@@ -22,7 +22,7 @@
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
-  * Authors: Ian Searle
+  * Authors: Ian Searle, Marshall Potts
   * Version: 1.0.0
   */
 /* USER CODE END Header */
@@ -573,7 +573,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   {
 	  //Disable the IRQ
 	  //HAL_TIM_Base_Stop(htim);
-	  int wave = tranposition__note_update(&htim15);// * decay_value;
+	  int wave = tranposition__note_update(&htim15) * decay_value;
 	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, wave);
 	  //HAL_TIM_Base_Start_IT(&htim15);
   }
