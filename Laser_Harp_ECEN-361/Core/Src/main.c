@@ -34,6 +34,8 @@
 //#include "sine_tables.h"
 #include "tranposition.h"
 #include "I2C_commands.h"
+#include "screen.h"
+#include "menu.h"
 
 /* USER CODE END Includes */
 
@@ -146,20 +148,17 @@ int main(void)
 
 
   tranposition__increment_octave();
+  menu_init();
+  lcd_init();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-	  if(HAL_GPIO_ReadPin(UP_BTN_GPIO_Port, UP_BTN_Pin)){
-		  tranposition__increment_octave();
-	  }
-	  int val = HAL_GPIO_ReadPin(DOWN_BTN_GPIO_Port, DOWN_BTN_Pin);
-	  if(val){
-	  		  tranposition__decrement_octave();
-	  	  }
+	  pull_buttons();
+	  HAL_Delay(50);
 
     /* USER CODE END WHILE */
 
@@ -429,17 +428,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : UP_BTN_Pin DOWN_BTN_Pin LEFT_BTN_Pin RIGHT_BTN_Pin */
-  GPIO_InitStruct.Pin = UP_BTN_Pin|DOWN_BTN_Pin|LEFT_BTN_Pin|RIGHT_BTN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
   /*Configure GPIO pins : NOTE_9_Pin NOTE_12_Pin */
   GPIO_InitStruct.Pin = NOTE_9_Pin|NOTE_12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : RIGHT_BTN_Pin LEFT_BTN_Pin BOTTOM_BTN_Pin TOP_BTN_Pin */
+  GPIO_InitStruct.Pin = RIGHT_BTN_Pin|LEFT_BTN_Pin|BOTTOM_BTN_Pin|TOP_BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
