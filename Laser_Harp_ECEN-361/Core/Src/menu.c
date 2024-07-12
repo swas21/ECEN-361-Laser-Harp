@@ -84,8 +84,8 @@ void menu_update_display(void) {
     switch (current_menu_item) {
         case MENU_ITEM_OCTAVE:
             snprintf(buffer, sizeof(buffer), "Octave: ");
-            lcd_set_cursor(0, 0);  // Assuming lcd_set_cursor(row, col) sets LCD cursor position
-            lcd_write_string(buffer);  // Assuming lcd_write_string(str) writes string to LCD
+            lcd_set_cursor(0, 0);
+            lcd_write_string(buffer);
             break;
         case MENU_ITEM_INSTRUMENT:
             snprintf(buffer, sizeof(buffer), "Instrument: ");
