@@ -80,7 +80,7 @@ UART_HandleTypeDef huart2;
 /* Index and Active are lists that are 12 long. This is to improve spatial locality in the program.
 Using the above stated define we can thats notes data from the list*/
 
-int index[] = {1,0,0,0,0,0,0,0,0,0,0,0};
+int index[] = {0,0,0,0,0,0,0,0,0,0,0,0};
 int active[] = {1,0,0,0,0,0,0,0,0,0,0,0};
 
 //char screen_out[] ={"H","e","l","l","o"};
@@ -142,9 +142,10 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim15); // Start the Music Interrupt Timer
 
   HAL_DAC_Start(&hdac1, DAC_CHANNEL_2); // Start one of the dac channels
+  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1); // Start one of the dac channels
 
 
-
+  tranposition__increment_octave();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -518,7 +519,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   {
 	  //Disable the IRQ
 	  //HAL_TIM_Base_Stop(htim);
-	  int wave = tranposition__note_update(&htim15);
+	  int wave = tranposition__note_update();
+	  //HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_L, wave);
+	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, wave);
 	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, wave);
 	  //HAL_TIM_Base_Start_IT(&htim15);
   }

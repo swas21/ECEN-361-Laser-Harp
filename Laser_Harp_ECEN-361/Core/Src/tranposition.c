@@ -21,7 +21,7 @@ enum tranposition__octave {
 };
 // Local Function Variables Variables
 
-enum tranposition__octave activeOctave = OCTAVE_4;
+enum tranposition__octave activeOctave = OCTAVE_3;
 
 const int *current_C_TABLE;
 const int *current_Cs_TABLE;
@@ -231,7 +231,7 @@ int tranposition__note_update() {
 
 
 
-	return	wave_out;
+	return	wave_out * 12;
 
 }
 
