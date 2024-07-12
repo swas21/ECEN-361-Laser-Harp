@@ -28,3 +28,14 @@ This project requires a basic real time operating system (RTOS), different types
 
 
 
+## Possible Improvments
+One improvement that can be made is the improve the CADD Models. The photoresistors are not a perfect fits. It would be nice if they were a tighter fit. We could also try to make things smaller and improve the time it takes to make everything.
+
+We could also work on having a custom PCB. This would include implenting a power regualtor to the project. This would make it so we could power it of a USB power bank. We would also work to include the amplifer on this board. There would be two main sections. We would have one section in the top, and the second one would be in the bottom and handle most things.
+
+A further improvemetn would be adding in bluetooth. This would allow a user to play the music to an external speaker.
+
+- More Modes
+- Instrument Sounds
+- Caps for the buttons
+
