@@ -150,7 +150,6 @@ int main(void)
   tranposition__increment_octave();
   menu_init();
   lcd_init();
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -158,7 +157,7 @@ int main(void)
   while (1)
   {
 	  pull_buttons();
-	  HAL_Delay(50);
+	  HAL_Delay(100);
 
     /* USER CODE END WHILE */
 
@@ -437,7 +436,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : RIGHT_BTN_Pin LEFT_BTN_Pin BOTTOM_BTN_Pin TOP_BTN_Pin */
   GPIO_InitStruct.Pin = RIGHT_BTN_Pin|LEFT_BTN_Pin|BOTTOM_BTN_Pin|TOP_BTN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
