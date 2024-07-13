@@ -22,7 +22,7 @@
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
-  * Authors: Ian Searle
+  * Authors: Ian Searle, Marshall Potts, Jared Swasey
   * Version: 1.0.0
   */
 /* USER CODE END Header */
@@ -149,7 +149,6 @@ int main(void)
 
   tranposition__increment_octave();
   menu_init();
-  lcd_init();
 
   /* USER CODE END 2 */
 
