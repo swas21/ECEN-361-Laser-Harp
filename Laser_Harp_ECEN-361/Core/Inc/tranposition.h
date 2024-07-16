@@ -1,8 +1,15 @@
 /*
- * tranposition.h
+ *
+  ______                                       _ __  _               __
+ /_  __/________ _____  _________  ____  _____(_) /_(_)___  ____    / /_
+  / / / ___/ __ `/ __ \/ ___/ __ \/ __ \/ ___/ / __/ / __ \/ __ \  / __ \
+ / / / /  / /_/ / / / (__  ) /_/ / /_/ (__  ) / /_/ / /_/ / / / / / / / /
+/_/ /_/   \__,_/_/ /_/____/ .___/\____/____/_/\__/_/\____/_/ /_(_)_/ /_/
+                         /_/
+
  *
  *  Created on: Jul 3, 2024
- *      Author: ianse
+ *      Author: ianse, Marshall Potts
  */
 
 
@@ -37,6 +44,20 @@ extern const int B_SAMPLES[];
 
 extern int index[];
 extern int active[];
+
+//import global decay_value variables from sustain.c
+extern float decay_value_C;
+extern float decay_value_Cs;
+extern float decay_value_D;
+extern float decay_value_Ds;
+extern float decay_value_E;
+extern float decay_value_F;
+extern float decay_value_Fs;
+extern float decay_value_G;
+extern float decay_value_Gs;
+extern float decay_value_A;
+extern float decay_value_As;
+extern float decay_value_B;
 
 void tranposition__increment_octave();
 void tranposition__decrement_octave();

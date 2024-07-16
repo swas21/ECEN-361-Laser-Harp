@@ -1,5 +1,12 @@
 /*
- * tranposition.c
+ *
+  ______                                       _ __  _
+ /_  __/________ _____  _________  ____  _____(_) /_(_)___  ____   _____
+  / / / ___/ __ `/ __ \/ ___/ __ \/ __ \/ ___/ / __/ / __ \/ __ \ / ___/
+ / / / /  / /_/ / / / (__  ) /_/ / /_/ (__  ) / /_/ / /_/ / / / // /__
+/_/ /_/   \__,_/_/ /_/____/ .___/\____/____/_/\__/_/\____/_/ /_(_)___/
+                         /_/
+
  *
  *  Created on: Jul 3, 2024
  *      Author: ianse
@@ -7,6 +14,9 @@
 
 #include "tranposition.h"
 #include "sine_tables.h"
+#include "sustain.h"
+
+
 
 enum tranposition__octave {
 	// This enum holds the information for which octave we are holding
@@ -199,18 +209,18 @@ int tranposition__note_update() {
 	 * If the note is active then we update the value. Otherwise we return a zero.
 	 ***************************************************************************/
 	int wave_out =0;
-	wave_out	+= active[NOTE_C] ? current_C_TABLE[index[NOTE_C]] : 0;
-	wave_out	+= active[NOTE_Cs] ? current_Cs_TABLE[index[NOTE_Cs]] : 0;
-	wave_out 	+= active[NOTE_D] ? current_D_TABLE[index[NOTE_D]] : 0;
-	wave_out 	+= active[NOTE_Ds] ? current_Ds_TABLE[index[NOTE_Ds]] : 0;
-	wave_out 	+= active[NOTE_E] ? current_E_TABLE[index[NOTE_E]] : 0;
-	wave_out 	+= active[NOTE_F] ? current_F_TABLE[index[NOTE_F]] : 0;
-	wave_out 	+= active[NOTE_Fs] ? current_Fs_TABLE[index[NOTE_Fs]] : 0;
-	wave_out 	+= active[NOTE_G] ? current_G_TABLE[index[NOTE_G]] : 0;
-	wave_out 	+= active[NOTE_Gs] ? current_Gs_TABLE[index[NOTE_Gs]] : 0;
-	wave_out 	+= active[NOTE_A] ? current_A_TABLE[index[NOTE_A]] : 0;
-	wave_out 	+= active[NOTE_As] ? current_As_TABLE[index[NOTE_As]] : 0;
-	wave_out 	+= active[NOTE_B] ? current_B_TABLE[index[NOTE_B]] : 0;
+	wave_out	+= active[NOTE_C] ? (current_C_TABLE[index[NOTE_C]] * decay_value_C) : 0;
+	wave_out	+= active[NOTE_Cs] ? (current_Cs_TABLE[index[NOTE_Cs]] * decay_value_Cs) : 0;
+	wave_out 	+= active[NOTE_D] ? (current_D_TABLE[index[NOTE_D]] * decay_value_D) : 0;
+	wave_out 	+= active[NOTE_Ds] ? (current_Ds_TABLE[index[NOTE_Ds]] *decay_value_Ds) : 0;
+	wave_out 	+= active[NOTE_E] ? (current_E_TABLE[index[NOTE_E]] * decay_value_E) : 0;
+	wave_out 	+= active[NOTE_F] ? (current_F_TABLE[index[NOTE_F]] * decay_value_F) : 0;
+	wave_out 	+= active[NOTE_Fs] ? (current_Fs_TABLE[index[NOTE_Fs]] * decay_value_Fs) : 0;
+	wave_out 	+= active[NOTE_G] ? (current_G_TABLE[index[NOTE_G]] * decay_value_G) : 0;
+	wave_out 	+= active[NOTE_Gs] ? (current_Gs_TABLE[index[NOTE_Gs]] * decay_value_Gs): 0;
+	wave_out 	+= active[NOTE_A] ? (current_A_TABLE[index[NOTE_A]] * decay_value_A) : 0;
+	wave_out 	+= active[NOTE_As] ? (current_As_TABLE[index[NOTE_As]] * decay_value_As) : 0;
+	wave_out 	+= active[NOTE_B] ? (current_B_TABLE[index[NOTE_B]] * decay_value_B) : 0;
 
 	/* ***************************************************************
 	 This batch of code is to just update the index if the note is active.

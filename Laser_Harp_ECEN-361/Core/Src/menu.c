@@ -1,3 +1,16 @@
+/*
+ *
+    __  ___
+   /  |/  /__  ____  __  __ _____
+  / /|_/ / _ \/ __ \/ / / // ___/
+ / /  / /  __/ / / / /_/ // /__
+/_/  /_/\___/_/ /_/\__,_(_)___/
+
+ *
+ *  Created on: Jul 10, 2024
+ *      Author: Jared Swasey, Marshall Potts
+ */
+
 #include "menu.h"
 #include "screen.h"
 #include "tranposition.h"
@@ -5,6 +18,8 @@
 
 static MenuItem current_menu_item = MENU_ITEM_OCTAVE;
 static int current_setting_value = 0;
+
+int sustain_flag = 0;
 
 void menu_init(void) {
     current_menu_item = MENU_ITEM_OCTAVE;
@@ -43,7 +58,13 @@ void menu_handle_button_up(void) {
             // Handle up button for echo/delay
             break;
         case MENU_ITEM_SUSTAIN:
-            // Handle up button for sustain
+            // set flag to on
+        	sustain_flag = 1;
+
+        	// print status of sustain
+        	snprintf(buffer, sizeof(buffer), "Sustain: ON 10s duration ");
+        	lcd_set_cursor(0, 0);
+        	lcd_write_string(buffer);
             break;
         case MENU_ITEM_TRANSPOSITION:
             tranposition__increment_octave();
@@ -67,7 +88,13 @@ void menu_handle_button_down(void) {
             // Handle down button for echo/delay
             break;
         case MENU_ITEM_SUSTAIN:
-            // Handle down button for sustain
+            // set flag to off
+        	sustain_flag = 0;
+
+        	// print status of sustain
+        	snprintf(buffer, sizeof(buffer), "Sustain: OFF ");
+        	lcd_set_cursor(0, 0);
+        	lcd_write_string(buffer);
             break;
         case MENU_ITEM_TRANSPOSITION:
             tranposition__decrement_octave();
