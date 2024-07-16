@@ -36,15 +36,16 @@ for note, frequency in note_frequencies.items():
     
     # Add the list to the dictionary
     note_lists[note] = rounded_values.tolist()
+
 #f = open("output1.txt","x")
-f = open("output1.txt","w")
+f = open("output.txt","w")
 
 # Print the lists for each note
 for note, values in note_lists.items():
    #print(f"#define {note}_SAMPLES {len(values)}")
    #print(f"{note}_Table = {front}{values}{back}")
-   f.write(f"const int {note}_SAMPLES = {len(values)};\n")
-   f.write(f"const int {note}_Table[] = {front}{values}{back};\n\n")
+   f.write(f"\n const int {note}_SAMPLES = {len(values)};\n")
+   f.write(f"const int {note}_Table[] = {front}{values}{back};\n")
 
 f.close()
 
