@@ -36,6 +36,7 @@
 #include "I2C_commands.h"
 #include "screen.h"
 #include "menu.h"
+#include "sustain.h"
 
 /* USER CODE END Includes */
 
@@ -419,18 +420,12 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : NOTE_1_Pin NOTE_2_Pin NOTE_3_Pin NOTE_4_Pin
                            NOTE_5_Pin NOTE_6_Pin NOTE_7_Pin NOTE_8_Pin
-                           NOTE_10_Pin NOTE_11_Pin */
+                           NOTE_9_Pin NOTE_10_Pin NOTE_11_Pin NOTE_12_Pin */
   GPIO_InitStruct.Pin = NOTE_1_Pin|NOTE_2_Pin|NOTE_3_Pin|NOTE_4_Pin
                           |NOTE_5_Pin|NOTE_6_Pin|NOTE_7_Pin|NOTE_8_Pin
-                          |NOTE_10_Pin|NOTE_11_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+                          |NOTE_9_Pin|NOTE_10_Pin|NOTE_11_Pin|NOTE_12_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : NOTE_9_Pin NOTE_12_Pin */
-  GPIO_InitStruct.Pin = NOTE_9_Pin|NOTE_12_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : RIGHT_BTN_Pin LEFT_BTN_Pin BOTTOM_BTN_Pin TOP_BTN_Pin */
@@ -513,16 +508,22 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 // Callback: timer has rolled over
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-  if (htim == &htim15 )
-  {
-	  //Disable the IRQ
-	  //HAL_TIM_Base_Stop(htim);
-	  int wave = tranposition__note_update();
-	  //HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_L, wave);
-	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, wave);
-	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, wave);
-	  //HAL_TIM_Base_Start_IT(&htim15);
-  }
+	//timer for sustain value update at 25kHz sample rate
+	if(htim == &htim16 )
+	{
+		update_decay_values();
+	}
+
+	if (htim == &htim15 )
+	{
+		//Disable the IRQ
+		//HAL_TIM_Base_Stop(htim);
+		int wave = tranposition__note_update();
+		//HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_L, wave);
+		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, wave);
+		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, wave);
+		//HAL_TIM_Base_Start_IT(&htim15);
+	}
 }
 /* USER CODE END 4 */
 

@@ -1,3 +1,15 @@
+/*
+
+    __  ___                   __
+   /  |/  /__  ____  __  __  / /_
+  / /|_/ / _ \/ __ \/ / / / / __ \
+ / /  / /  __/ / / / /_/ / / / / /
+/_/  /_/\___/_/ /_/\__,_(_)_/ /_/
+
+ *
+ *  Created on: Jul 10, 2024
+ *      Author: Jared Swasey, Marshall Potts
+ */
 #ifndef MENU_H
 #define MENU_H
 
