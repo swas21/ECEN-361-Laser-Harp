@@ -85,7 +85,7 @@ UART_HandleTypeDef huart2;
 Using the above stated define we can thats notes data from the list*/
 
 int my_index[] = {0,0,0,0,0,0,0,0,0,0,0,0};
-int active[] = {1,0,0,0,0,0,0,0,0,0,0,0};
+int active[] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
 //variables to signify whether the note named should be sustained. Used in sustain.c
 int sustain_C = 0;
@@ -176,7 +176,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  pull_buttons();
+	  poll_buttons();
 	  HAL_Delay(100);
 
     /* USER CODE END WHILE */
@@ -514,9 +514,12 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	switch (GPIO_Pin) {
+
+	// check if laser is broken and toggle with changes in laser state (rising and falling edge)
+	// set flag for the sustain of each note with each activation
 	case NOTE_1_Pin:
 		active[NOTE_C] = !active[NOTE_C];
-		sustain_C = active[NOTE_C] ? 1 : 0;
+		sustain_C = active[NOTE_C] ? 1 : 0; //set sustain_note variables to 1 when the notes are active and 0 when they are inactive
 		break;
 	case NOTE_2_Pin:
 		active[NOTE_Cs] = !active[NOTE_Cs];
@@ -574,6 +577,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	//timer for sustain value update at 25kHz sample rate
 	if(htim == &htim16 )
 	{
+		// update the decay value for each note at 250Hz
 		update_decay_values();
 	}
 

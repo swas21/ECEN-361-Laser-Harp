@@ -16,6 +16,7 @@
 #include "sustain.h"
 #include "menu.h"
 #include "tranposition.h"
+#include "exponential_tables.h"
 
 // sets value for each note index of the array active[]
 #define NOTE_C 		0

@@ -1,10 +1,10 @@
 /*
  *
     __  ___
-   /  |/  /__  ____  __  __ _____
-  / /|_/ / _ \/ __ \/ / / // ___/
- / /  / /  __/ / / / /_/ // /__
-/_/  /_/\___/_/ /_/\__,_(_)___/
+   /  |/  /__  ____  __  __
+  / /|_/ / _ \/ __ \/ / / /
+ / /  / /  __/ / / / /_/ /
+/_/  /_/\___/_/ /_/\__,_/
 
  *
  *  Created on: Jul 10, 2024
@@ -128,12 +128,12 @@ void menu_update_display(void) {
             lcd_write_string(buffer);
             break;
         case MENU_ITEM_SUSTAIN:
-            snprintf(buffer, sizeof(buffer), "Sustain: ");
+            snprintf(buffer, sizeof(buffer), "Sustain: up ON, down OFF");
             lcd_set_cursor(0, 0);
             lcd_write_string(buffer);
             break;
         case MENU_ITEM_TRANSPOSITION:
-            snprintf(buffer, sizeof(buffer), "Transposition: ");
+            snprintf(buffer, sizeof(buffer), "Transposition: up inc, down dec");
             lcd_set_cursor(0, 0);
             lcd_write_string(buffer);
             break;
@@ -142,7 +142,7 @@ void menu_update_display(void) {
     }
 }
 
-void pull_buttons(void) {
+void poll_buttons(void) {
     if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_UP_PIN) == 1) {
         menu_handle_button_up();
         HAL_Delay(100);
