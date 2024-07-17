@@ -143,28 +143,28 @@ void menu_update_display(void) {
 }
 
 void pull_buttons(void) {
-    if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_UP_PIN) == GPIO_PIN_RESET) {
+    if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_UP_PIN) == 1) {
         menu_handle_button_up();
         HAL_Delay(100);
         while (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_UP_PIN) == GPIO_PIN_RESET) {
             HAL_Delay(100); // Debounce delay
         }
     }
-    if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_DOWN_PIN) == GPIO_PIN_RESET) {
+    if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_DOWN_PIN) == 1) {
         menu_handle_button_down();
         HAL_Delay(100);
         while (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_DOWN_PIN) == GPIO_PIN_RESET) {
             HAL_Delay(100); // Debounce delay
         }
     }
-    if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_LEFT_PIN) == GPIO_PIN_RESET) {
+    if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_LEFT_PIN) == 1) {
         menu_handle_button_left();
         HAL_Delay(100);
         while (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_LEFT_PIN) == GPIO_PIN_RESET) {
             HAL_Delay(100); // Debounce delay
         }
     }
-    if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_RIGHT_PIN) == GPIO_PIN_RESET) {
+    if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_RIGHT_PIN) == 1) {
         menu_handle_button_right();
         HAL_Delay(100);
         while (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_RIGHT_PIN) == GPIO_PIN_RESET) {
