@@ -179,65 +179,65 @@ int tranposition__note_update() {
 		 Normally this would be done at the end, but since we might be switching octaves
 		 we need to make sure that our indexes are restarted.
 	*********************************************************************/
-		if (index[NOTE_C] > current_C_SAMPLES)
-			index[NOTE_C] = 0;
-		if (index[NOTE_Cs] > current_Cs_SAMPLES)
-			index[NOTE_Cs] = 0;
-		if (index[NOTE_D] > current_D_SAMPLES)
-			index[NOTE_D] = 0;
-		if (index[NOTE_Ds] > current_Ds_SAMPLES)
-			index[NOTE_Ds] = 0;
-		if (index[NOTE_E] > current_E_SAMPLES)
-			index[NOTE_E] = 0;
-		if (index[NOTE_F] > current_F_SAMPLES)
-			index[NOTE_F] = 0;
-		if (index[NOTE_Fs] > current_Fs_SAMPLES)
-			index[NOTE_Fs] = 0;
-		if (index[NOTE_G] > current_G_SAMPLES)
-			index[NOTE_G] = 0;
-		if (index[NOTE_Gs] > current_Gs_SAMPLES)
-			index[NOTE_Gs] = 0;
-		if (index[NOTE_A] > current_A_SAMPLES)
-			index[NOTE_A] = 0;
-		if (index[NOTE_As] > current_As_SAMPLES)
-			index[NOTE_As] = 0;
-		if (index[NOTE_B] > current_B_SAMPLES)
-			index[NOTE_B] = 0;
+		if (my_index[NOTE_C] > current_C_SAMPLES)
+			my_index[NOTE_C] = 0;
+		if (my_index[NOTE_Cs] > current_Cs_SAMPLES)
+			my_index[NOTE_Cs] = 0;
+		if (my_index[NOTE_D] > current_D_SAMPLES)
+			my_index[NOTE_D] = 0;
+		if (my_index[NOTE_Ds] > current_Ds_SAMPLES)
+			my_index[NOTE_Ds] = 0;
+		if (my_index[NOTE_E] > current_E_SAMPLES)
+			my_index[NOTE_E] = 0;
+		if (my_index[NOTE_F] > current_F_SAMPLES)
+			my_index[NOTE_F] = 0;
+		if (my_index[NOTE_Fs] > current_Fs_SAMPLES)
+			my_index[NOTE_Fs] = 0;
+		if (my_index[NOTE_G] > current_G_SAMPLES)
+			my_index[NOTE_G] = 0;
+		if (my_index[NOTE_Gs] > current_Gs_SAMPLES)
+			my_index[NOTE_Gs] = 0;
+		if (my_index[NOTE_A] > current_A_SAMPLES)
+			my_index[NOTE_A] = 0;
+		if (my_index[NOTE_As] > current_As_SAMPLES)
+			my_index[NOTE_As] = 0;
+		if (my_index[NOTE_B] > current_B_SAMPLES)
+			my_index[NOTE_B] = 0;
 	/* ***************************************************************
 	 * This first batch of values is to look update the value for each Note.
 	 * By using a list and different indexes we can speed up the program with good spatial locality
 	 * If the note is active then we update the value. Otherwise we return a zero.
 	 ***************************************************************************/
 	int wave_out =0;
-	wave_out	+= active[NOTE_C] ? (current_C_TABLE[index[NOTE_C]] * decay_value_C) : 0;
-	wave_out	+= active[NOTE_Cs] ? (current_Cs_TABLE[index[NOTE_Cs]] * decay_value_Cs) : 0;
-	wave_out 	+= active[NOTE_D] ? (current_D_TABLE[index[NOTE_D]] * decay_value_D) : 0;
-	wave_out 	+= active[NOTE_Ds] ? (current_Ds_TABLE[index[NOTE_Ds]] *decay_value_Ds) : 0;
-	wave_out 	+= active[NOTE_E] ? (current_E_TABLE[index[NOTE_E]] * decay_value_E) : 0;
-	wave_out 	+= active[NOTE_F] ? (current_F_TABLE[index[NOTE_F]] * decay_value_F) : 0;
-	wave_out 	+= active[NOTE_Fs] ? (current_Fs_TABLE[index[NOTE_Fs]] * decay_value_Fs) : 0;
-	wave_out 	+= active[NOTE_G] ? (current_G_TABLE[index[NOTE_G]] * decay_value_G) : 0;
-	wave_out 	+= active[NOTE_Gs] ? (current_Gs_TABLE[index[NOTE_Gs]] * decay_value_Gs): 0;
-	wave_out 	+= active[NOTE_A] ? (current_A_TABLE[index[NOTE_A]] * decay_value_A) : 0;
-	wave_out 	+= active[NOTE_As] ? (current_As_TABLE[index[NOTE_As]] * decay_value_As) : 0;
-	wave_out 	+= active[NOTE_B] ? (current_B_TABLE[index[NOTE_B]] * decay_value_B) : 0;
+	wave_out	+= active[NOTE_C] ? (current_C_TABLE[my_index[NOTE_C]] * decay_value_C) : 0;
+	wave_out	+= active[NOTE_Cs] ? (current_Cs_TABLE[my_index[NOTE_Cs]] * decay_value_Cs) : 0;
+	wave_out 	+= active[NOTE_D] ? (current_D_TABLE[my_index[NOTE_D]] * decay_value_D) : 0;
+	wave_out 	+= active[NOTE_Ds] ? (current_Ds_TABLE[my_index[NOTE_Ds]] *decay_value_Ds) : 0;
+	wave_out 	+= active[NOTE_E] ? (current_E_TABLE[my_index[NOTE_E]] * decay_value_E) : 0;
+	wave_out 	+= active[NOTE_F] ? (current_F_TABLE[my_index[NOTE_F]] * decay_value_F) : 0;
+	wave_out 	+= active[NOTE_Fs] ? (current_Fs_TABLE[my_index[NOTE_Fs]] * decay_value_Fs) : 0;
+	wave_out 	+= active[NOTE_G] ? (current_G_TABLE[my_index[NOTE_G]] * decay_value_G) : 0;
+	wave_out 	+= active[NOTE_Gs] ? (current_Gs_TABLE[my_index[NOTE_Gs]] * decay_value_Gs): 0;
+	wave_out 	+= active[NOTE_A] ? (current_A_TABLE[my_index[NOTE_A]] * decay_value_A) : 0;
+	wave_out 	+= active[NOTE_As] ? (current_As_TABLE[my_index[NOTE_As]] * decay_value_As) : 0;
+	wave_out 	+= active[NOTE_B] ? (current_B_TABLE[my_index[NOTE_B]] * decay_value_B) : 0;
 
 	/* ***************************************************************
 	 This batch of code is to just update the index if the note is active.
 	 Since the active list should only ever hold a 0 or a 1, this code works. Avoid if statements
 	 ***************************************************************************/
-	index[NOTE_C] += active[NOTE_C];
-	index[NOTE_Cs] += active[NOTE_Cs];
-	index[NOTE_D] += active[NOTE_D];
-	index[NOTE_Ds] += active[NOTE_Ds];
-	index[NOTE_E] += active[NOTE_E];
-	index[NOTE_F] += active[NOTE_F];
-	index[NOTE_Fs] += active[NOTE_Fs];
-	index[NOTE_G] += active[NOTE_G];
-	index[NOTE_Gs] += active[NOTE_Gs];
-	index[NOTE_A] += active[NOTE_A];
-	index[NOTE_As] += active[NOTE_As];
-	index[NOTE_B] += active[NOTE_B];
+	my_index[NOTE_C] += active[NOTE_C];
+	my_index[NOTE_Cs] += active[NOTE_Cs];
+	my_index[NOTE_D] += active[NOTE_D];
+	my_index[NOTE_Ds] += active[NOTE_Ds];
+	my_index[NOTE_E] += active[NOTE_E];
+	my_index[NOTE_F] += active[NOTE_F];
+	my_index[NOTE_Fs] += active[NOTE_Fs];
+	my_index[NOTE_G] += active[NOTE_G];
+	my_index[NOTE_Gs] += active[NOTE_Gs];
+	my_index[NOTE_A] += active[NOTE_A];
+	my_index[NOTE_As] += active[NOTE_As];
+	my_index[NOTE_B] += active[NOTE_B];
 
 
 

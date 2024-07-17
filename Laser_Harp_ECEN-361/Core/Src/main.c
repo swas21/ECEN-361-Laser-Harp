@@ -76,6 +76,7 @@ DAC_HandleTypeDef hdac1;
 I2C_HandleTypeDef hi2c1;
 
 TIM_HandleTypeDef htim15;
+TIM_HandleTypeDef htim16;
 
 UART_HandleTypeDef huart2;
 
@@ -83,8 +84,23 @@ UART_HandleTypeDef huart2;
 /* Index and Active are lists that are 12 long. This is to improve spatial locality in the program.
 Using the above stated define we can thats notes data from the list*/
 
-int index[] = {0,0,0,0,0,0,0,0,0,0,0,0};
+int my_index[] = {0,0,0,0,0,0,0,0,0,0,0,0};
 int active[] = {1,0,0,0,0,0,0,0,0,0,0,0};
+
+//variables to signify whether the note named should be sustained. Used in sustain.c
+int sustain_C = 0;
+int sustain_Cs = 0;
+int sustain_D = 0;
+int sustain_Ds = 0;
+int sustain_E = 0;
+int sustain_F = 0;
+int sustain_Fs = 0;
+int sustain_G = 0;
+int sustain_Gs = 0;
+int sustain_A = 0;
+int sustain_As = 0;
+int sustain_B = 0;
+
 
 //char screen_out[] ={"H","e","l","l","o"};
 
@@ -99,6 +115,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_DAC1_Init(void);
 static void MX_TIM15_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_TIM16_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -140,9 +157,11 @@ int main(void)
   MX_DAC1_Init();
   MX_TIM15_Init();
   MX_I2C1_Init();
+  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
 
   HAL_TIM_Base_Start_IT(&htim15); // Start the Music Interrupt Timer
+  HAL_TIM_Base_Start_IT(&htim16); // Star the Sustain Interrupt Timer
 
   HAL_DAC_Start(&hdac1, DAC_CHANNEL_2); // Start one of the dac channels
   HAL_DAC_Start(&hdac1, DAC_CHANNEL_1); // Start one of the dac channels
@@ -361,6 +380,38 @@ static void MX_TIM15_Init(void)
 }
 
 /**
+  * @brief TIM16 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM16_Init(void)
+{
+
+  /* USER CODE BEGIN TIM16_Init 0 */
+
+  /* USER CODE END TIM16_Init 0 */
+
+  /* USER CODE BEGIN TIM16_Init 1 */
+
+  /* USER CODE END TIM16_Init 1 */
+  htim16.Instance = TIM16;
+  htim16.Init.Prescaler = 3200-1;
+  htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim16.Init.Period = 100-1;
+  htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim16.Init.RepetitionCounter = 0;
+  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  if (HAL_TIM_Base_Init(&htim16) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM16_Init 2 */
+
+  /* USER CODE END TIM16_Init 2 */
+
+}
+
+/**
   * @brief USART2 Initialization Function
   * @param None
   * @retval None
@@ -465,39 +516,51 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	switch (GPIO_Pin) {
 	case NOTE_1_Pin:
 		active[NOTE_C] = !active[NOTE_C];
+		sustain_C = active[NOTE_C] ? 1 : 0;
 		break;
 	case NOTE_2_Pin:
 		active[NOTE_Cs] = !active[NOTE_Cs];
+		sustain_Cs = active[NOTE_Cs] ? 1 : 0;
 		break;
 	case NOTE_3_Pin:
 		active[NOTE_D] = !active[NOTE_D];
+		sustain_D = active[NOTE_D] ? 1 : 0;
 		break;
 	case NOTE_4_Pin:
 		active[NOTE_Ds] = !active[NOTE_Ds];
+		sustain_Ds = active[NOTE_Ds] ? 1 : 0;
 		break;
 	case NOTE_5_Pin:
 		active[NOTE_E] = !active[NOTE_E];
+		sustain_E = active[NOTE_E] ? 1 : 0;
 		break;
 	case NOTE_6_Pin:
 		active[NOTE_F] = !active[NOTE_F];
+		sustain_F = active[NOTE_F] ? 1 : 0;
 		break;
 	case NOTE_7_Pin:
 		active[NOTE_Fs] = !active[NOTE_Fs];
+		sustain_Fs = active[NOTE_Fs] ? 1 : 0;
 		break;
 	case NOTE_8_Pin:
 		active[NOTE_G] = !active[NOTE_G];
+		sustain_G = active[NOTE_G] ? 1 : 0;
 		break;
 	case NOTE_9_Pin:
 		active[NOTE_Gs] = !active[NOTE_Gs];
+		sustain_Gs = active[NOTE_Gs] ? 1 : 0;
 		break;
 	case NOTE_10_Pin:
 		active[NOTE_A] = !active[NOTE_A];
+		sustain_A = active[NOTE_A] ? 1 : 0;
 		break;
 	case NOTE_11_Pin:
 		active[NOTE_As] = !active[NOTE_As];
+		sustain_As = active[NOTE_As] ? 1 : 0;
 		break;
 	case NOTE_12_Pin:
 		active[NOTE_B] = !active[NOTE_B];
+		sustain_B = active[NOTE_B] ? 1 : 0;
 		break;
 
 	default:

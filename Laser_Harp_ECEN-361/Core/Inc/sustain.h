@@ -15,6 +15,20 @@
 // flag to turn the sustain on and off from menu.c
 extern int sustain_flag;
 
+// variable to hold the sustain for each note
+extern int sustain_C;
+extern int sustain_Cs;
+extern int sustain_D;
+extern int sustain_Ds;
+extern int sustain_E;
+extern int sustain_F;
+extern int sustain_Fs;
+extern int sustain_G;
+extern int sustain_Gs;
+extern int sustain_A;
+extern int sustain_As;
+extern int sustain_B;
+
 void update_decay_values(void);
 
 

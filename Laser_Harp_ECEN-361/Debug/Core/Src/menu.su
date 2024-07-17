@@ -1,7 +1,7 @@
-../Core/Src/menu.c:9:6:menu_init	8	static
-../Core/Src/menu.c:16:6:menu_handle_button_left	8	static
-../Core/Src/menu.c:25:6:menu_handle_button_right	8	static
-../Core/Src/menu.c:34:6:menu_handle_button_up	8	static
-../Core/Src/menu.c:58:6:menu_handle_button_down	8	static
-../Core/Src/menu.c:81:6:menu_update_display	40	static
-../Core/Src/menu.c:115:6:pull_buttons	8	static
+../Core/Src/menu.c:27:6:menu_init	8	static
+../Core/Src/menu.c:34:6:menu_handle_button_left	8	static
+../Core/Src/menu.c:43:6:menu_handle_button_right	8	static
+../Core/Src/menu.c:52:6:menu_handle_button_up	8	static
+../Core/Src/menu.c:82:6:menu_handle_button_down	8	static
+../Core/Src/menu.c:111:6:menu_update_display	8	static
+../Core/Src/menu.c:145:6:pull_buttons	8	static

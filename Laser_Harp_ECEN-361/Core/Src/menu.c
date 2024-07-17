@@ -8,16 +8,19 @@
 
  *
  *  Created on: Jul 10, 2024
- *      Author: Jared Swasey, Marshall Potts
+ *      Author: Jared Swasey
  */
 
 #include "menu.h"
 #include "screen.h"
 #include "tranposition.h"
+#include "sustain.h"
 #include <stdio.h>
 
 static MenuItem current_menu_item = MENU_ITEM_OCTAVE;
 static int current_setting_value = 0;
+
+char buffer[32];
 
 int sustain_flag = 0;
 
@@ -106,7 +109,7 @@ void menu_handle_button_down(void) {
 }
 
 void menu_update_display(void) {
-    char buffer[32];
+
     lcd_clear();  // Assuming lcd_clear() clears the LCD display
     switch (current_menu_item) {
         case MENU_ITEM_OCTAVE:

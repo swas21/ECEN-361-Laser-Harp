@@ -9,7 +9,7 @@
 
  *
  *  Created on: Jul 3, 2024
- *      Author: ianse, Marshall Potts
+ *      Author: ianse
  */
 
 
@@ -42,7 +42,7 @@ extern const int A_SAMPLES[];
 extern const int As_SAMPLES[];
 extern const int B_SAMPLES[];
 
-extern int index[];
+extern int my_index[];
 extern int active[];
 
 //import global decay_value variables from sustain.c

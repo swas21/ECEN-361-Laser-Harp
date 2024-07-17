@@ -1,4 +1,4 @@
-../Core/Src/tranposition.c:57:6:tranposition__increment_octave	7
-../Core/Src/tranposition.c:93:6:tranposition__decrement_octave	7
-../Core/Src/tranposition.c:129:6:update_note_tables	1
-../Core/Src/tranposition.c:164:5:tranposition__note_update	25
+../Core/Src/tranposition.c:67:6:tranposition__increment_octave	7
+../Core/Src/tranposition.c:103:6:tranposition__decrement_octave	7
+../Core/Src/tranposition.c:139:6:update_note_tables	1
+../Core/Src/tranposition.c:174:5:tranposition__note_update	25

@@ -32,7 +32,7 @@ Core/Src/menu.o: ../Core/Src/menu.c ../Core/Inc/menu.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../Core/Inc/tranposition.h
+ ../Core/Inc/tranposition.h ../Core/Inc/sustain.h
 ../Core/Inc/menu.h:
 ../Core/Inc/screen.h:
 ../Core/Inc/main.h:
@@ -69,3 +69,4 @@ Core/Src/menu.o: ../Core/Src/menu.c ../Core/Inc/menu.h \
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
 ../Core/Inc/tranposition.h:
+../Core/Inc/sustain.h:

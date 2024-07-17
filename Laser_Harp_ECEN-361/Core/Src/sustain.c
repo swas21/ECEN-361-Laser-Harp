@@ -14,6 +14,7 @@
  */
 
 #include "sustain.h"
+#include "menu.h"
 #include "tranposition.h"
 
 // sets value for each note index of the array active[]
@@ -61,63 +62,151 @@ int decay_index_B = 0;
 
 void update_decay_values()
 {
-	if(sustain_flag == 1)
+	// sustain_flag is the on/off switch. up button sets it true(on) and down button sets it false(off)
+	if(sustain_flag)
 	{
-		// set the value of decay from 1-0 defaults to 1 when note is inactive
-		decay_value_C = active[NOTE_C] ? decay_table[decay_index_C]:1;
-		decay_index_C++;
+		// if the note should be sustained then update decay value
+		if(sustain_C)
+			{
+				decay_value_C = decay_table[NOTE_C];
+				decay_index_C++;
+			}
 
-		decay_value_Cs = active[NOTE_Cs] ? decay_table[decay_index_Cs]:1;
-		decay_index_Cs++;
+		if(sustain_Cs)
+		{
+			decay_value_Cs = decay_table[NOTE_Cs];
+			decay_index_Cs++;
+		}
 
-		decay_value_D = active[NOTE_D] ? decay_table[decay_index_D]:1;
-		decay_index_D++;
+		if(sustain_D)
+		{
+			decay_value_D = decay_table[NOTE_D];
+			decay_index_D++;
+		}
 
-		decay_value_Ds = active[NOTE_Ds] ? decay_table[decay_index_Ds]:1;
-		decay_index_Ds++;
+		if(sustain_Ds)
+		{
+			decay_value_Ds = decay_table[NOTE_Ds];
+			decay_index_Cs++;
+		}
 
-		decay_value_E = active[NOTE_E] ? decay_table[decay_index_E]:1;
-		decay_index_E++;
+		if(sustain_E)
+		{
+			decay_value_E = decay_table[NOTE_E];
+			decay_index_E++;
+		}
 
-		decay_value_F = active[NOTE_F] ? decay_table[decay_index_F]:1;
-		decay_index_F++;
+		if(sustain_F)
+		{
+			decay_value_F = decay_table[NOTE_F];
+			decay_index_F++;
+		}
 
-		decay_value_Fs = active[NOTE_Fs] ? decay_table[decay_index_Fs]:1;
-		decay_index_Fs++;
+		if(sustain_Fs)
+		{
+			decay_value_Fs = decay_table[NOTE_Fs];
+			decay_index_Fs++;
+		}
 
-		decay_value_G = active[NOTE_G] ? decay_table[decay_index_G]:1;
-		decay_index_G++;
+		if(sustain_G)
+		{
+			decay_value_G = decay_table[NOTE_G];
+			decay_index_G++;
+		}
 
-		decay_value_Gs = active[NOTE_Gs] ? decay_table[decay_index_Gs]:1;
-		decay_index_Gs++;
+		if(sustain_Gs)
+		{
+			decay_value_Gs = decay_table[NOTE_Gs];
+			decay_index_Gs++;
+		}
 
-		decay_value_A = active[NOTE_A] ? decay_table[decay_index_A]:1;
-		decay_index_A++;
+		if(sustain_A)
+		{
+			decay_value_A = decay_table[NOTE_A];
+			decay_index_A++;
+		}
 
-		decay_value_As = active[NOTE_As] ? decay_table[decay_index_As]:1;
-		decay_index_As++;
+		if(sustain_As)
+		{
+			decay_value_As = decay_table[NOTE_As];
+			decay_index_As++;
+		}
 
-		decay_value_B = active[NOTE_B] ? decay_table[decay_index_B]:1;
-		decay_index_B++;
+		if(sustain_B)
+		{
+			decay_value_B = decay_table[NOTE_B];
+			decay_index_B++;
+		}
+
+		else
+		{
+			decay_value_C = 1;
+			decay_value_Cs = 1;
+		}
 
 	}
 
-	else
+	// if the index has reached the end of the decay table then the note should not be sustained anymore
+	if(decay_index_C > 2500-1)
 	{
-		// return all values to 1 when sustain is off
-		decay_value_C = 1;
-		decay_value_Cs = 1;
-		decay_value_D = 1;
-		decay_value_Ds = 1;
-		decay_value_E = 1;
-		decay_value_F = 1;
-		decay_value_Fs = 1;
-		decay_value_G = 1;
-		decay_value_Gs = 1;
-		decay_value_A = 1;
-		decay_value_As = 1;
-		decay_value_B = 1;
+		sustain_C = 0;
 	}
+
+	if(decay_index_Cs > 2500-1)
+	{
+		sustain_Cs = 0;
+	}
+
+	if(decay_index_D > 2500-1)
+	{
+		sustain_D = 0;
+	}
+
+	if(decay_index_Ds > 2500-1)
+	{
+		sustain_Ds = 0;
+	}
+
+	if(decay_index_E > 2500-1)
+	{
+		sustain_E = 0;
+	}
+
+	if(decay_index_F > 2500-1)
+	{
+		sustain_F = 0;
+	}
+
+	if(decay_index_Fs > 2500-1)
+	{
+		sustain_Fs = 0;
+	}
+
+	if(decay_index_G > 2500-1)
+	{
+		sustain_G = 0;
+	}
+
+	if(decay_index_Gs > 2500-1)
+	{
+		sustain_Gs = 0;
+	}
+
+	if(decay_index_A > 2500-1)
+	{
+		sustain_A = 0;
+	}
+
+	if(decay_index_As > 2500-1)
+	{
+		sustain_As = 0;
+	}
+
+	if(decay_index_B > 2500-1)
+	{
+		sustain_B = 0;
+	}
+
 
 
 }

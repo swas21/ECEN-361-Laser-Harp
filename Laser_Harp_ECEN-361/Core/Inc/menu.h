@@ -8,7 +8,7 @@
 
  *
  *  Created on: Jul 10, 2024
- *      Author: Jared Swasey, Marshall Potts
+ *      Author: Jared Swasey
  */
 #ifndef MENU_H
 #define MENU_H
