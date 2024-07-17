@@ -1,7 +1,7 @@
-../Core/Src/menu.c:27:6:menu_init	1
-../Core/Src/menu.c:34:6:menu_handle_button_left	2
-../Core/Src/menu.c:43:6:menu_handle_button_right	2
-../Core/Src/menu.c:52:6:menu_handle_button_up	3
-../Core/Src/menu.c:82:6:menu_handle_button_down	3
+../Core/Src/menu.c:27:6:menu_init	6
+../Core/Src/menu.c:34:6:menu_handle_button_left	7
+../Core/Src/menu.c:43:6:menu_handle_button_right	7
+../Core/Src/menu.c:52:6:menu_handle_button_up	8
+../Core/Src/menu.c:82:6:menu_handle_button_down	8
 ../Core/Src/menu.c:111:6:menu_update_display	6
-../Core/Src/menu.c:145:6:pull_buttons	9
+../Core/Src/menu.c:145:6:pull_buttons	15
