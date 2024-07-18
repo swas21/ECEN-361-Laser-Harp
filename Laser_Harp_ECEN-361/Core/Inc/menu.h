@@ -14,10 +14,10 @@
 #define MENU_H
 
 /* Button pins */
-#define BUTTON_UP_PIN GPIO_PIN_7
-#define BUTTON_DOWN_PIN GPIO_PIN_6
-#define BUTTON_LEFT_PIN GPIO_PIN_5
-#define BUTTON_RIGHT_PIN GPIO_PIN_4
+#define BUTTON_UP_PIN GPIO_PIN_12
+#define BUTTON_DOWN_PIN GPIO_PIN_13
+#define BUTTON_LEFT_PIN GPIO_PIN_14
+#define BUTTON_RIGHT_PIN GPIO_PIN_15
 #define BUTTON_GPIO_PORT GPIOB
 
 typedef enum {
@@ -35,6 +35,6 @@ void menu_handle_button_down(void);
 void menu_handle_button_left(void);
 void menu_handle_button_right(void);
 void menu_update_display(void);
-void poll_buttons(void);
+void check_buttons(void);
 
 #endif // MENU_H

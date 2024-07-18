@@ -142,7 +142,7 @@ void menu_update_display(void) {
     }
 }
 
-void poll_buttons(void) {
+void check_buttons(void) {
     if (HAL_GPIO_ReadPin(BUTTON_GPIO_PORT, BUTTON_UP_PIN) == 1) {
         menu_handle_button_up();
         HAL_Delay(100);
