@@ -1,4 +1,7 @@
 #include "screen.h"
+#include <string.h>  // Include for strlen and strncpy
+
+#define LCD_WIDTH 16  // Define LCD width based on your LCD specification
 
 uint8_t backlight_state = 1; // initialize backlight_state
 
@@ -57,6 +60,23 @@ void lcd_write_string(char *str)
     while (*str)
     {
         lcd_send_data(*str++);
+    }
+}
+
+void lcd_write_multiline_string(char *str)
+{
+    int line = 0;
+    int len = strlen(str);
+    int pos = 0;
+
+    while (pos < len && line < 2) {
+        char buffer[LCD_WIDTH + 1];
+        strncpy(buffer, str + pos, LCD_WIDTH);
+        buffer[LCD_WIDTH] = '\0';
+        lcd_set_cursor(line, 0);
+        lcd_write_string(buffer);
+        pos += LCD_WIDTH;
+        line++;
     }
 }
 

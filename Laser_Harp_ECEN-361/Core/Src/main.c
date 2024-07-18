@@ -176,6 +176,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  poll_buttons();
+	  HAL_Delay(50);
 
     /* USER CODE END WHILE */
 
@@ -461,29 +463,32 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pins : NOTE_1_Pin NOTE_5_Pin NOTE_6_Pin NOTE_7_Pin
-                           NOTE_8_Pin */
-  GPIO_InitStruct.Pin = NOTE_1_Pin|NOTE_5_Pin|NOTE_6_Pin|NOTE_7_Pin
-                          |NOTE_8_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  /*Configure GPIO pin : B1_Pin */
+  GPIO_InitStruct.Pin = B1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : NOTE_2_Pin NOTE_3_Pin NOTE_4_Pin NOTE_9_Pin
-                           NOTE_10_Pin NOTE_11_Pin NOTE_12_Pin */
-  GPIO_InitStruct.Pin = NOTE_2_Pin|NOTE_3_Pin|NOTE_4_Pin|NOTE_9_Pin
-                          |NOTE_10_Pin|NOTE_11_Pin|NOTE_12_Pin;
+  /*Configure GPIO pins : NOTE_1_Pin NOTE_2_Pin NOTE_3_Pin NOTE_4_Pin
+                           NOTE_5_Pin NOTE_6_Pin NOTE_7_Pin NOTE_8_Pin
+                           NOTE_9_Pin NOTE_10_Pin NOTE_11_Pin NOTE_12_Pin */
+  GPIO_InitStruct.Pin = NOTE_1_Pin|NOTE_2_Pin|NOTE_3_Pin|NOTE_4_Pin
+                          |NOTE_5_Pin|NOTE_6_Pin|NOTE_7_Pin|NOTE_8_Pin
+                          |NOTE_9_Pin|NOTE_10_Pin|NOTE_11_Pin|NOTE_12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TOP_BTN_Pin BOTTOM_BTN_Pin LEFT_BTN_Pin RIGHT_BTN_Pin */
-  GPIO_InitStruct.Pin = TOP_BTN_Pin|BOTTOM_BTN_Pin|LEFT_BTN_Pin|RIGHT_BTN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  /*Configure GPIO pins : RIGHT_BTN_Pin LEFT_BTN_Pin BOTTOM_BTN_Pin TOP_BTN_Pin */
+  GPIO_InitStruct.Pin = RIGHT_BTN_Pin|LEFT_BTN_Pin|BOTTOM_BTN_Pin|TOP_BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+
   HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 
@@ -508,191 +513,62 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-
-
 	switch (GPIO_Pin) {
 
-	// interrupt when rising and falling. When laser is broken (0) set note to active.
+	// check if laser is broken and toggle with changes in laser state (rising and falling edge)
 	// set flag for the sustain of each note with each activation
-
 	case NOTE_1_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_1_GPIO_Port, NOTE_1_Pin) == 0)
-		{
-			active[NOTE_C] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_1_GPIO_Port, NOTE_1_Pin) == 1)
-		{
-			active[NOTE_C] = 0;
-		}
-
-		//active[NOTE_C] = !active[NOTE_C];
+		active[NOTE_C] = !active[NOTE_C];
 		sustain_C = active[NOTE_C] ? 1 : 0; //set sustain_note variables to 1 when the notes are active and 0 when they are inactive
 		break;
-
 	case NOTE_2_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_2_GPIO_Port, NOTE_2_Pin) == 0)
-		{
-			active[NOTE_Cs] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_2_GPIO_Port, NOTE_2_Pin) == 1)
-		{
-			active[NOTE_Cs] = 0;
-		}
-
+		active[NOTE_Cs] = !active[NOTE_Cs];
 		sustain_Cs = active[NOTE_Cs] ? 1 : 0;
 		break;
-
 	case NOTE_3_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_3_GPIO_Port, NOTE_3_Pin) == 0)
-		{
-			active[NOTE_D] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_3_GPIO_Port, NOTE_3_Pin) == 1)
-		{
-			active[NOTE_D] = 0;
-		}
+		active[NOTE_D] = !active[NOTE_D];
 		sustain_D = active[NOTE_D] ? 1 : 0;
 		break;
-
 	case NOTE_4_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_4_GPIO_Port, NOTE_4_Pin) == 0)
-		{
-			active[NOTE_Ds] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_4_GPIO_Port, NOTE_4_Pin) == 1)
-		{
-			active[NOTE_Ds] = 0;
-		}
+		active[NOTE_Ds] = !active[NOTE_Ds];
 		sustain_Ds = active[NOTE_Ds] ? 1 : 0;
 		break;
-
 	case NOTE_5_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_5_GPIO_Port, NOTE_5_Pin) == 0)
-		{
-			active[NOTE_E] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_5_GPIO_Port, NOTE_5_Pin) == 1)
-		{
-			active[NOTE_E] = 0;
-		}
+		active[NOTE_E] = !active[NOTE_E];
 		sustain_E = active[NOTE_E] ? 1 : 0;
 		break;
-
 	case NOTE_6_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_6_GPIO_Port, NOTE_6_Pin) == 0)
-		{
-			active[NOTE_F] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_6_GPIO_Port, NOTE_6_Pin) == 1)
-		{
-			active[NOTE_F] = 0;
-		}
+		active[NOTE_F] = !active[NOTE_F];
 		sustain_F = active[NOTE_F] ? 1 : 0;
 		break;
-
 	case NOTE_7_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_7_GPIO_Port, NOTE_7_Pin) == 0)
-		{
-			active[NOTE_Fs] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_7_GPIO_Port, NOTE_7_Pin) == 1)
-		{
-			active[NOTE_Fs] = 0;
-		}
+		active[NOTE_Fs] = !active[NOTE_Fs];
 		sustain_Fs = active[NOTE_Fs] ? 1 : 0;
 		break;
-
 	case NOTE_8_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_8_GPIO_Port, NOTE_8_Pin) == 0)
-		{
-			active[NOTE_G] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_8_GPIO_Port, NOTE_8_Pin) == 1)
-		{
-			active[NOTE_G] = 0;
-		}
+		active[NOTE_G] = !active[NOTE_G];
 		sustain_G = active[NOTE_G] ? 1 : 0;
 		break;
-
 	case NOTE_9_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_9_GPIO_Port, NOTE_9_Pin) == 0)
-		{
-			active[NOTE_Gs] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_9_GPIO_Port, NOTE_9_Pin) == 1)
-		{
-			active[NOTE_Gs] = 0;
-		}
+		active[NOTE_Gs] = !active[NOTE_Gs];
 		sustain_Gs = active[NOTE_Gs] ? 1 : 0;
 		break;
-
 	case NOTE_10_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_10_GPIO_Port, NOTE_10_Pin) == 0)
-		{
-			active[NOTE_A] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_10_GPIO_Port, NOTE_10_Pin) == 1)
-		{
-			active[NOTE_A] = 0;
-		}
+		active[NOTE_A] = !active[NOTE_A];
 		sustain_A = active[NOTE_A] ? 1 : 0;
 		break;
-
 	case NOTE_11_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_11_GPIO_Port, NOTE_11_Pin) == 0)
-		{
-			active[NOTE_As] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_11_GPIO_Port, NOTE_11_Pin) == 1)
-		{
-			active[NOTE_As] = 0;
-		}
+		active[NOTE_As] = !active[NOTE_As];
 		sustain_As = active[NOTE_As] ? 1 : 0;
 		break;
-
 	case NOTE_12_Pin:
-
-		if(HAL_GPIO_ReadPin(NOTE_12_GPIO_Port, NOTE_12_Pin) == 0)
-		{
-			active[NOTE_B] = 1;
-		}
-
-		if(HAL_GPIO_ReadPin(NOTE_12_GPIO_Port, NOTE_12_Pin) == 1)
-		{
-			active[NOTE_B] = 0;
-		}
+		active[NOTE_B] = !active[NOTE_B];
 		sustain_B = active[NOTE_B] ? 1 : 0;
 		break;
 
 	default:
 		break;
 	}
-
-	// Check the menu button interrupts
-	//check_buttons();
-
 }
 
 // Callback: timer has rolled over
