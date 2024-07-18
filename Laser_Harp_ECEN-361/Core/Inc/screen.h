@@ -26,5 +26,6 @@ void lcd_write_string(char *str);
 void lcd_set_cursor(uint8_t row, uint8_t column);
 void lcd_clear(void);
 void lcd_backlight(uint8_t state);
+void lcd_write_multiline_string(char *str);
 
 #endif // SCREEN_H

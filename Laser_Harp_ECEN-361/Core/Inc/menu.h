@@ -35,6 +35,6 @@ void menu_handle_button_down(void);
 void menu_handle_button_left(void);
 void menu_handle_button_right(void);
 void menu_update_display(void);
-void check_buttons(void);
+void poll_buttons(void);
 
 #endif // MENU_H
