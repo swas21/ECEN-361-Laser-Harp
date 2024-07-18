@@ -177,7 +177,7 @@ int main(void)
   while (1)
   {
 	  poll_buttons();
-	  HAL_Delay(100);
+	  HAL_Delay(50);
 
     /* USER CODE END WHILE */
 

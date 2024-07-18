@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
+# Toolchain: GNU Tools for STM32 (11.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,8 +60,8 @@ all: main-build
 main-build: ECEN-361-Laser-Harp.elf secondary-outputs
 
 # Tool invocations
-ECEN-361-Laser-Harp.elf ECEN-361-Laser-Harp.map: $(OBJS) $(USER_OBJS) C:\Users\Adell\ Hoskisson\OneDrive\Email\ attachments\Documents\GitHub\ECEN-361-Laser-Harp\Laser_Harp_ECEN-361\STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ECEN-361-Laser-Harp.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Adell Hoskisson\OneDrive\Email attachments\Documents\GitHub\ECEN-361-Laser-Harp\Laser_Harp_ECEN-361\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ECEN-361-Laser-Harp.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+ECEN-361-Laser-Harp.elf ECEN-361-Laser-Harp.map: $(OBJS) $(USER_OBJS) C:\Users\jared\Documents\GitHub\ECEN-361-Laser-Harp\Laser_Harp_ECEN-361\STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ECEN-361-Laser-Harp.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\jared\Documents\GitHub\ECEN-361-Laser-Harp\Laser_Harp_ECEN-361\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ECEN-361-Laser-Harp.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

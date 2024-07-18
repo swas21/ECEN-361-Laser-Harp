@@ -1,7 +1,7 @@
-../Core/Src/menu.c:27:6:menu_init	16	static
-../Core/Src/menu.c:34:6:menu_handle_button_left	16	static
-../Core/Src/menu.c:43:6:menu_handle_button_right	16	static
-../Core/Src/menu.c:52:6:menu_handle_button_up	16	static
-../Core/Src/menu.c:82:6:menu_handle_button_down	16	static
-../Core/Src/menu.c:111:6:menu_update_display	16	static
-../Core/Src/menu.c:145:6:poll_buttons	16	static
+../Core/Src/menu.c:30:6:menu_init	16	static
+../Core/Src/menu.c:37:6:menu_handle_button_left	16	static
+../Core/Src/menu.c:46:6:menu_handle_button_right	16	static
+../Core/Src/menu.c:55:6:menu_handle_button_up	16	static
+../Core/Src/menu.c:79:6:menu_handle_button_down	16	static
+../Core/Src/menu.c:103:6:menu_update_display	16	static
+../Core/Src/menu.c:140:6:poll_buttons	8	static
