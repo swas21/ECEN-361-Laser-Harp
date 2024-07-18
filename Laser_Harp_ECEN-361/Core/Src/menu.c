@@ -23,7 +23,7 @@
 static MenuItem current_menu_item = MENU_ITEM_OCTAVE;
 static int current_setting_value = 0;
 
-char buffer[32];
+char buffer[33];
 
 int sustain_flag = 0;
 
@@ -128,7 +128,7 @@ void menu_update_display(void) {
             lcd_write_multiline_string(buffer);
             break;
         case MENU_ITEM_TRANSPOSITION:
-            snprintf(buffer, sizeof(buffer), "Transposition: up inc, down dec");
+            snprintf(buffer, sizeof(buffer), "Transposition:  up inc, down dec");
             lcd_set_cursor(0, 0);
             lcd_write_multiline_string(buffer);
             break;

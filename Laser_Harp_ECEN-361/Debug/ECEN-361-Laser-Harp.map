@@ -4602,360 +4602,361 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 .iplt           0x0000000008004adc        0x0
  .iplt          0x0000000008004adc        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0000000008004adc    0x34f80
+.rodata         0x0000000008004adc    0x34f84
                 0x0000000008004adc                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.menu_init.str1.4
-                0x0000000008004adc       0x78 ./Core/Src/menu.o
+                0x0000000008004adc       0x79 ./Core/Src/menu.o
+ *fill*         0x0000000008004b55        0x3 
  .rodata.AHBPrescTable
-                0x0000000008004b54       0x10 ./Core/Src/system_stm32l4xx.o
-                0x0000000008004b54                AHBPrescTable
+                0x0000000008004b58       0x10 ./Core/Src/system_stm32l4xx.o
+                0x0000000008004b58                AHBPrescTable
  .rodata.APBPrescTable
-                0x0000000008004b64        0x8 ./Core/Src/system_stm32l4xx.o
-                0x0000000008004b64                APBPrescTable
+                0x0000000008004b68        0x8 ./Core/Src/system_stm32l4xx.o
+                0x0000000008004b68                APBPrescTable
  .rodata.MSIRangeTable
-                0x0000000008004b6c       0x30 ./Core/Src/system_stm32l4xx.o
-                0x0000000008004b6c                MSIRangeTable
+                0x0000000008004b70       0x30 ./Core/Src/system_stm32l4xx.o
+                0x0000000008004b70                MSIRangeTable
  .rodata.A_1_TABLE
-                0x0000000008004b9c     0x1c6c ./Core/Src/tranposition.o
-                0x0000000008004b9c                A_1_TABLE
+                0x0000000008004ba0     0x1c6c ./Core/Src/tranposition.o
+                0x0000000008004ba0                A_1_TABLE
  .rodata.A_2_TABLE
-                0x0000000008006808      0xe38 ./Core/Src/tranposition.o
-                0x0000000008006808                A_2_TABLE
+                0x000000000800680c      0xe38 ./Core/Src/tranposition.o
+                0x000000000800680c                A_2_TABLE
  .rodata.A_3_TABLE
-                0x0000000008007640      0x71c ./Core/Src/tranposition.o
-                0x0000000008007640                A_3_TABLE
+                0x0000000008007644      0x71c ./Core/Src/tranposition.o
+                0x0000000008007644                A_3_TABLE
  .rodata.A_4_TABLE
-                0x0000000008007d5c      0x390 ./Core/Src/tranposition.o
-                0x0000000008007d5c                A_4_TABLE
+                0x0000000008007d60      0x390 ./Core/Src/tranposition.o
+                0x0000000008007d60                A_4_TABLE
  .rodata.A_5_TABLE
-                0x00000000080080ec      0x1c8 ./Core/Src/tranposition.o
-                0x00000000080080ec                A_5_TABLE
+                0x00000000080080f0      0x1c8 ./Core/Src/tranposition.o
+                0x00000000080080f0                A_5_TABLE
  .rodata.A_6_TABLE
-                0x00000000080082b4       0xe4 ./Core/Src/tranposition.o
-                0x00000000080082b4                A_6_TABLE
+                0x00000000080082b8       0xe4 ./Core/Src/tranposition.o
+                0x00000000080082b8                A_6_TABLE
  .rodata.A_7_TABLE
-                0x0000000008008398       0x74 ./Core/Src/tranposition.o
-                0x0000000008008398                A_7_TABLE
+                0x000000000800839c       0x74 ./Core/Src/tranposition.o
+                0x000000000800839c                A_7_TABLE
  .rodata.A_SAMPLES
-                0x000000000800840c       0x1c ./Core/Src/tranposition.o
-                0x000000000800840c                A_SAMPLES
+                0x0000000008008410       0x1c ./Core/Src/tranposition.o
+                0x0000000008008410                A_SAMPLES
  .rodata.As_1_TABLE
-                0x0000000008008428     0x1ad4 ./Core/Src/tranposition.o
-                0x0000000008008428                As_1_TABLE
+                0x000000000800842c     0x1ad4 ./Core/Src/tranposition.o
+                0x000000000800842c                As_1_TABLE
  .rodata.As_2_TABLE
-                0x0000000008009efc      0xd6c ./Core/Src/tranposition.o
-                0x0000000008009efc                As_2_TABLE
+                0x0000000008009f00      0xd6c ./Core/Src/tranposition.o
+                0x0000000008009f00                As_2_TABLE
  .rodata.As_3_TABLE
-                0x000000000800ac68      0x6b8 ./Core/Src/tranposition.o
-                0x000000000800ac68                As_3_TABLE
+                0x000000000800ac6c      0x6b8 ./Core/Src/tranposition.o
+                0x000000000800ac6c                As_3_TABLE
  .rodata.As_4_TABLE
-                0x000000000800b320      0x35c ./Core/Src/tranposition.o
-                0x000000000800b320                As_4_TABLE
+                0x000000000800b324      0x35c ./Core/Src/tranposition.o
+                0x000000000800b324                As_4_TABLE
  .rodata.As_5_TABLE
-                0x000000000800b67c      0x1b0 ./Core/Src/tranposition.o
-                0x000000000800b67c                As_5_TABLE
+                0x000000000800b680      0x1b0 ./Core/Src/tranposition.o
+                0x000000000800b680                As_5_TABLE
  .rodata.As_6_TABLE
-                0x000000000800b82c       0xd8 ./Core/Src/tranposition.o
-                0x000000000800b82c                As_6_TABLE
+                0x000000000800b830       0xd8 ./Core/Src/tranposition.o
+                0x000000000800b830                As_6_TABLE
  .rodata.As_7_TABLE
-                0x000000000800b904       0x6c ./Core/Src/tranposition.o
-                0x000000000800b904                As_7_TABLE
+                0x000000000800b908       0x6c ./Core/Src/tranposition.o
+                0x000000000800b908                As_7_TABLE
  .rodata.As_SAMPLES
-                0x000000000800b970       0x1c ./Core/Src/tranposition.o
-                0x000000000800b970                As_SAMPLES
+                0x000000000800b974       0x1c ./Core/Src/tranposition.o
+                0x000000000800b974                As_SAMPLES
  .rodata.B_1_TABLE
-                0x000000000800b98c     0x1950 ./Core/Src/tranposition.o
-                0x000000000800b98c                B_1_TABLE
+                0x000000000800b990     0x1950 ./Core/Src/tranposition.o
+                0x000000000800b990                B_1_TABLE
  .rodata.B_2_TABLE
-                0x000000000800d2dc      0xca8 ./Core/Src/tranposition.o
-                0x000000000800d2dc                B_2_TABLE
+                0x000000000800d2e0      0xca8 ./Core/Src/tranposition.o
+                0x000000000800d2e0                B_2_TABLE
  .rodata.B_3_TABLE
-                0x000000000800df84      0x654 ./Core/Src/tranposition.o
-                0x000000000800df84                B_3_TABLE
+                0x000000000800df88      0x654 ./Core/Src/tranposition.o
+                0x000000000800df88                B_3_TABLE
  .rodata.B_4_TABLE
-                0x000000000800e5d8      0x32c ./Core/Src/tranposition.o
-                0x000000000800e5d8                B_4_TABLE
+                0x000000000800e5dc      0x32c ./Core/Src/tranposition.o
+                0x000000000800e5dc                B_4_TABLE
  .rodata.B_5_TABLE
-                0x000000000800e904      0x198 ./Core/Src/tranposition.o
-                0x000000000800e904                B_5_TABLE
+                0x000000000800e908      0x198 ./Core/Src/tranposition.o
+                0x000000000800e908                B_5_TABLE
  .rodata.B_6_TABLE
-                0x000000000800ea9c       0xcc ./Core/Src/tranposition.o
-                0x000000000800ea9c                B_6_TABLE
+                0x000000000800eaa0       0xcc ./Core/Src/tranposition.o
+                0x000000000800eaa0                B_6_TABLE
  .rodata.B_7_TABLE
-                0x000000000800eb68       0x68 ./Core/Src/tranposition.o
-                0x000000000800eb68                B_7_TABLE
+                0x000000000800eb6c       0x68 ./Core/Src/tranposition.o
+                0x000000000800eb6c                B_7_TABLE
  .rodata.B_SAMPLES
-                0x000000000800ebd0       0x1c ./Core/Src/tranposition.o
-                0x000000000800ebd0                B_SAMPLES
+                0x000000000800ebd4       0x1c ./Core/Src/tranposition.o
+                0x000000000800ebd4                B_SAMPLES
  .rodata.C_1_TABLE
-                0x000000000800ebec     0x2fcc ./Core/Src/tranposition.o
-                0x000000000800ebec                C_1_TABLE
+                0x000000000800ebf0     0x2fcc ./Core/Src/tranposition.o
+                0x000000000800ebf0                C_1_TABLE
  .rodata.C_2_TABLE
-                0x0000000008011bb8     0x17e4 ./Core/Src/tranposition.o
-                0x0000000008011bb8                C_2_TABLE
+                0x0000000008011bbc     0x17e4 ./Core/Src/tranposition.o
+                0x0000000008011bbc                C_2_TABLE
  .rodata.C_3_TABLE
-                0x000000000801339c      0xbf4 ./Core/Src/tranposition.o
-                0x000000000801339c                C_3_TABLE
+                0x00000000080133a0      0xbf4 ./Core/Src/tranposition.o
+                0x00000000080133a0                C_3_TABLE
  .rodata.C_4_TABLE
-                0x0000000008013f90      0x5fc ./Core/Src/tranposition.o
-                0x0000000008013f90                C_4_TABLE
+                0x0000000008013f94      0x5fc ./Core/Src/tranposition.o
+                0x0000000008013f94                C_4_TABLE
  .rodata.C_5_TABLE
-                0x000000000801458c      0x300 ./Core/Src/tranposition.o
-                0x000000000801458c                C_5_TABLE
+                0x0000000008014590      0x300 ./Core/Src/tranposition.o
+                0x0000000008014590                C_5_TABLE
  .rodata.C_6_TABLE
-                0x000000000801488c      0x180 ./Core/Src/tranposition.o
-                0x000000000801488c                C_6_TABLE
+                0x0000000008014890      0x180 ./Core/Src/tranposition.o
+                0x0000000008014890                C_6_TABLE
  .rodata.C_7_TABLE
-                0x0000000008014a0c       0xc0 ./Core/Src/tranposition.o
-                0x0000000008014a0c                C_7_TABLE
+                0x0000000008014a10       0xc0 ./Core/Src/tranposition.o
+                0x0000000008014a10                C_7_TABLE
  .rodata.C_SAMPLES
-                0x0000000008014acc       0x1c ./Core/Src/tranposition.o
-                0x0000000008014acc                C_SAMPLES
+                0x0000000008014ad0       0x1c ./Core/Src/tranposition.o
+                0x0000000008014ad0                C_SAMPLES
  .rodata.Cs_1_TABLE
-                0x0000000008014ae8     0x2d1c ./Core/Src/tranposition.o
-                0x0000000008014ae8                Cs_1_TABLE
+                0x0000000008014aec     0x2d1c ./Core/Src/tranposition.o
+                0x0000000008014aec                Cs_1_TABLE
  .rodata.Cs_2_TABLE
-                0x0000000008017804     0x1690 ./Core/Src/tranposition.o
-                0x0000000008017804                Cs_2_TABLE
+                0x0000000008017808     0x1690 ./Core/Src/tranposition.o
+                0x0000000008017808                Cs_2_TABLE
  .rodata.Cs_3_TABLE
-                0x0000000008018e94      0xb48 ./Core/Src/tranposition.o
-                0x0000000008018e94                Cs_3_TABLE
+                0x0000000008018e98      0xb48 ./Core/Src/tranposition.o
+                0x0000000008018e98                Cs_3_TABLE
  .rodata.Cs_4_TABLE
-                0x00000000080199dc      0x5a4 ./Core/Src/tranposition.o
-                0x00000000080199dc                Cs_4_TABLE
+                0x00000000080199e0      0x5a4 ./Core/Src/tranposition.o
+                0x00000000080199e0                Cs_4_TABLE
  .rodata.Cs_5_TABLE
-                0x0000000008019f80      0x2d4 ./Core/Src/tranposition.o
-                0x0000000008019f80                Cs_5_TABLE
+                0x0000000008019f84      0x2d4 ./Core/Src/tranposition.o
+                0x0000000008019f84                Cs_5_TABLE
  .rodata.Cs_6_TABLE
-                0x000000000801a254      0x16c ./Core/Src/tranposition.o
-                0x000000000801a254                Cs_6_TABLE
+                0x000000000801a258      0x16c ./Core/Src/tranposition.o
+                0x000000000801a258                Cs_6_TABLE
  .rodata.Cs_7_TABLE
-                0x000000000801a3c0       0xb8 ./Core/Src/tranposition.o
-                0x000000000801a3c0                Cs_7_TABLE
+                0x000000000801a3c4       0xb8 ./Core/Src/tranposition.o
+                0x000000000801a3c4                Cs_7_TABLE
  .rodata.Cs_SAMPLES
-                0x000000000801a478       0x1c ./Core/Src/tranposition.o
-                0x000000000801a478                Cs_SAMPLES
+                0x000000000801a47c       0x1c ./Core/Src/tranposition.o
+                0x000000000801a47c                Cs_SAMPLES
  .rodata.D_1_TABLE
-                0x000000000801a494     0x2a94 ./Core/Src/tranposition.o
-                0x000000000801a494                D_1_TABLE
+                0x000000000801a498     0x2a94 ./Core/Src/tranposition.o
+                0x000000000801a498                D_1_TABLE
  .rodata.D_2_TABLE
-                0x000000000801cf28     0x154c ./Core/Src/tranposition.o
-                0x000000000801cf28                D_2_TABLE
+                0x000000000801cf2c     0x154c ./Core/Src/tranposition.o
+                0x000000000801cf2c                D_2_TABLE
  .rodata.D_3_TABLE
-                0x000000000801e474      0xaa8 ./Core/Src/tranposition.o
-                0x000000000801e474                D_3_TABLE
+                0x000000000801e478      0xaa8 ./Core/Src/tranposition.o
+                0x000000000801e478                D_3_TABLE
  .rodata.D_4_TABLE
-                0x000000000801ef1c      0x554 ./Core/Src/tranposition.o
-                0x000000000801ef1c                D_4_TABLE
+                0x000000000801ef20      0x554 ./Core/Src/tranposition.o
+                0x000000000801ef20                D_4_TABLE
  .rodata.D_5_TABLE
-                0x000000000801f470      0x2ac ./Core/Src/tranposition.o
-                0x000000000801f470                D_5_TABLE
+                0x000000000801f474      0x2ac ./Core/Src/tranposition.o
+                0x000000000801f474                D_5_TABLE
  .rodata.D_6_TABLE
-                0x000000000801f71c      0x158 ./Core/Src/tranposition.o
-                0x000000000801f71c                D_6_TABLE
+                0x000000000801f720      0x158 ./Core/Src/tranposition.o
+                0x000000000801f720                D_6_TABLE
  .rodata.D_7_TABLE
-                0x000000000801f874       0xac ./Core/Src/tranposition.o
-                0x000000000801f874                D_7_TABLE
+                0x000000000801f878       0xac ./Core/Src/tranposition.o
+                0x000000000801f878                D_7_TABLE
  .rodata.D_SAMPLES
-                0x000000000801f920       0x1c ./Core/Src/tranposition.o
-                0x000000000801f920                D_SAMPLES
+                0x000000000801f924       0x1c ./Core/Src/tranposition.o
+                0x000000000801f924                D_SAMPLES
  .rodata.Ds_1_TABLE
-                0x000000000801f93c     0x2830 ./Core/Src/tranposition.o
-                0x000000000801f93c                Ds_1_TABLE
+                0x000000000801f940     0x2830 ./Core/Src/tranposition.o
+                0x000000000801f940                Ds_1_TABLE
  .rodata.Ds_2_TABLE
-                0x000000000802216c     0x1418 ./Core/Src/tranposition.o
-                0x000000000802216c                Ds_2_TABLE
+                0x0000000008022170     0x1418 ./Core/Src/tranposition.o
+                0x0000000008022170                Ds_2_TABLE
  .rodata.Ds_3_TABLE
-                0x0000000008023584      0xa0c ./Core/Src/tranposition.o
-                0x0000000008023584                Ds_3_TABLE
+                0x0000000008023588      0xa0c ./Core/Src/tranposition.o
+                0x0000000008023588                Ds_3_TABLE
  .rodata.Ds_4_TABLE
-                0x0000000008023f90      0x508 ./Core/Src/tranposition.o
-                0x0000000008023f90                Ds_4_TABLE
+                0x0000000008023f94      0x508 ./Core/Src/tranposition.o
+                0x0000000008023f94                Ds_4_TABLE
  .rodata.Ds_5_TABLE
-                0x0000000008024498      0x284 ./Core/Src/tranposition.o
-                0x0000000008024498                Ds_5_TABLE
+                0x000000000802449c      0x284 ./Core/Src/tranposition.o
+                0x000000000802449c                Ds_5_TABLE
  .rodata.Ds_6_TABLE
-                0x000000000802471c      0x144 ./Core/Src/tranposition.o
-                0x000000000802471c                Ds_6_TABLE
+                0x0000000008024720      0x144 ./Core/Src/tranposition.o
+                0x0000000008024720                Ds_6_TABLE
  .rodata.Ds_7_TABLE
-                0x0000000008024860       0xa4 ./Core/Src/tranposition.o
-                0x0000000008024860                Ds_7_TABLE
+                0x0000000008024864       0xa4 ./Core/Src/tranposition.o
+                0x0000000008024864                Ds_7_TABLE
  .rodata.Ds_SAMPLES
-                0x0000000008024904       0x1c ./Core/Src/tranposition.o
-                0x0000000008024904                Ds_SAMPLES
+                0x0000000008024908       0x1c ./Core/Src/tranposition.o
+                0x0000000008024908                Ds_SAMPLES
  .rodata.E_1_TABLE
-                0x0000000008024920     0x25f0 ./Core/Src/tranposition.o
-                0x0000000008024920                E_1_TABLE
+                0x0000000008024924     0x25f0 ./Core/Src/tranposition.o
+                0x0000000008024924                E_1_TABLE
  .rodata.E_2_TABLE
-                0x0000000008026f10     0x12f8 ./Core/Src/tranposition.o
-                0x0000000008026f10                E_2_TABLE
+                0x0000000008026f14     0x12f8 ./Core/Src/tranposition.o
+                0x0000000008026f14                E_2_TABLE
  .rodata.E_3_TABLE
-                0x0000000008028208      0x97c ./Core/Src/tranposition.o
-                0x0000000008028208                E_3_TABLE
+                0x000000000802820c      0x97c ./Core/Src/tranposition.o
+                0x000000000802820c                E_3_TABLE
  .rodata.E_4_TABLE
-                0x0000000008028b84      0x4c0 ./Core/Src/tranposition.o
-                0x0000000008028b84                E_4_TABLE
+                0x0000000008028b88      0x4c0 ./Core/Src/tranposition.o
+                0x0000000008028b88                E_4_TABLE
  .rodata.E_5_TABLE
-                0x0000000008029044      0x260 ./Core/Src/tranposition.o
-                0x0000000008029044                E_5_TABLE
+                0x0000000008029048      0x260 ./Core/Src/tranposition.o
+                0x0000000008029048                E_5_TABLE
  .rodata.E_6_TABLE
-                0x00000000080292a4      0x130 ./Core/Src/tranposition.o
-                0x00000000080292a4                E_6_TABLE
+                0x00000000080292a8      0x130 ./Core/Src/tranposition.o
+                0x00000000080292a8                E_6_TABLE
  .rodata.E_7_TABLE
-                0x00000000080293d4       0x98 ./Core/Src/tranposition.o
-                0x00000000080293d4                E_7_TABLE
+                0x00000000080293d8       0x98 ./Core/Src/tranposition.o
+                0x00000000080293d8                E_7_TABLE
  .rodata.E_SAMPLES
-                0x000000000802946c       0x1c ./Core/Src/tranposition.o
-                0x000000000802946c                E_SAMPLES
+                0x0000000008029470       0x1c ./Core/Src/tranposition.o
+                0x0000000008029470                E_SAMPLES
  .rodata.F_1_TABLE
-                0x0000000008029488     0x23cc ./Core/Src/tranposition.o
-                0x0000000008029488                F_1_TABLE
+                0x000000000802948c     0x23cc ./Core/Src/tranposition.o
+                0x000000000802948c                F_1_TABLE
  .rodata.F_2_TABLE
-                0x000000000802b854     0x11e8 ./Core/Src/tranposition.o
-                0x000000000802b854                F_2_TABLE
+                0x000000000802b858     0x11e8 ./Core/Src/tranposition.o
+                0x000000000802b858                F_2_TABLE
  .rodata.F_3_TABLE
-                0x000000000802ca3c      0x8f4 ./Core/Src/tranposition.o
-                0x000000000802ca3c                F_3_TABLE
+                0x000000000802ca40      0x8f4 ./Core/Src/tranposition.o
+                0x000000000802ca40                F_3_TABLE
  .rodata.F_4_TABLE
-                0x000000000802d330      0x47c ./Core/Src/tranposition.o
-                0x000000000802d330                F_4_TABLE
+                0x000000000802d334      0x47c ./Core/Src/tranposition.o
+                0x000000000802d334                F_4_TABLE
  .rodata.F_5_TABLE
-                0x000000000802d7ac      0x240 ./Core/Src/tranposition.o
-                0x000000000802d7ac                F_5_TABLE
+                0x000000000802d7b0      0x240 ./Core/Src/tranposition.o
+                0x000000000802d7b0                F_5_TABLE
  .rodata.F_6_TABLE
-                0x000000000802d9ec      0x120 ./Core/Src/tranposition.o
-                0x000000000802d9ec                F_6_TABLE
+                0x000000000802d9f0      0x120 ./Core/Src/tranposition.o
+                0x000000000802d9f0                F_6_TABLE
  .rodata.F_7_TABLE
-                0x000000000802db0c       0x90 ./Core/Src/tranposition.o
-                0x000000000802db0c                F_7_TABLE
+                0x000000000802db10       0x90 ./Core/Src/tranposition.o
+                0x000000000802db10                F_7_TABLE
  .rodata.F_SAMPLES
-                0x000000000802db9c       0x1c ./Core/Src/tranposition.o
-                0x000000000802db9c                F_SAMPLES
+                0x000000000802dba0       0x1c ./Core/Src/tranposition.o
+                0x000000000802dba0                F_SAMPLES
  .rodata.Fs_1_TABLE
-                0x000000000802dbb8     0x21cc ./Core/Src/tranposition.o
-                0x000000000802dbb8                Fs_1_TABLE
+                0x000000000802dbbc     0x21cc ./Core/Src/tranposition.o
+                0x000000000802dbbc                Fs_1_TABLE
  .rodata.Fs_2_TABLE
-                0x000000000802fd84     0x10e8 ./Core/Src/tranposition.o
-                0x000000000802fd84                Fs_2_TABLE
+                0x000000000802fd88     0x10e8 ./Core/Src/tranposition.o
+                0x000000000802fd88                Fs_2_TABLE
  .rodata.Fs_3_TABLE
-                0x0000000008030e6c      0x874 ./Core/Src/tranposition.o
-                0x0000000008030e6c                Fs_3_TABLE
+                0x0000000008030e70      0x874 ./Core/Src/tranposition.o
+                0x0000000008030e70                Fs_3_TABLE
  .rodata.Fs_4_TABLE
-                0x00000000080316e0      0x43c ./Core/Src/tranposition.o
-                0x00000000080316e0                Fs_4_TABLE
+                0x00000000080316e4      0x43c ./Core/Src/tranposition.o
+                0x00000000080316e4                Fs_4_TABLE
  .rodata.Fs_5_TABLE
-                0x0000000008031b1c      0x220 ./Core/Src/tranposition.o
-                0x0000000008031b1c                Fs_5_TABLE
+                0x0000000008031b20      0x220 ./Core/Src/tranposition.o
+                0x0000000008031b20                Fs_5_TABLE
  .rodata.Fs_6_TABLE
-                0x0000000008031d3c      0x110 ./Core/Src/tranposition.o
-                0x0000000008031d3c                Fs_6_TABLE
+                0x0000000008031d40      0x110 ./Core/Src/tranposition.o
+                0x0000000008031d40                Fs_6_TABLE
  .rodata.Fs_7_TABLE
-                0x0000000008031e4c       0x88 ./Core/Src/tranposition.o
-                0x0000000008031e4c                Fs_7_TABLE
+                0x0000000008031e50       0x88 ./Core/Src/tranposition.o
+                0x0000000008031e50                Fs_7_TABLE
  .rodata.Fs_SAMPLES
-                0x0000000008031ed4       0x1c ./Core/Src/tranposition.o
-                0x0000000008031ed4                Fs_SAMPLES
+                0x0000000008031ed8       0x1c ./Core/Src/tranposition.o
+                0x0000000008031ed8                Fs_SAMPLES
  .rodata.G_1_TABLE
-                0x0000000008031ef0     0x1fe4 ./Core/Src/tranposition.o
-                0x0000000008031ef0                G_1_TABLE
+                0x0000000008031ef4     0x1fe4 ./Core/Src/tranposition.o
+                0x0000000008031ef4                G_1_TABLE
  .rodata.G_2_TABLE
-                0x0000000008033ed4      0xff4 ./Core/Src/tranposition.o
-                0x0000000008033ed4                G_2_TABLE
+                0x0000000008033ed8      0xff4 ./Core/Src/tranposition.o
+                0x0000000008033ed8                G_2_TABLE
  .rodata.G_3_TABLE
-                0x0000000008034ec8      0x7fc ./Core/Src/tranposition.o
-                0x0000000008034ec8                G_3_TABLE
+                0x0000000008034ecc      0x7fc ./Core/Src/tranposition.o
+                0x0000000008034ecc                G_3_TABLE
  .rodata.G_4_TABLE
-                0x00000000080356c4      0x400 ./Core/Src/tranposition.o
-                0x00000000080356c4                G_4_TABLE
+                0x00000000080356c8      0x400 ./Core/Src/tranposition.o
+                0x00000000080356c8                G_4_TABLE
  .rodata.G_5_TABLE
-                0x0000000008035ac4      0x200 ./Core/Src/tranposition.o
-                0x0000000008035ac4                G_5_TABLE
+                0x0000000008035ac8      0x200 ./Core/Src/tranposition.o
+                0x0000000008035ac8                G_5_TABLE
  .rodata.G_6_TABLE
-                0x0000000008035cc4      0x100 ./Core/Src/tranposition.o
-                0x0000000008035cc4                G_6_TABLE
+                0x0000000008035cc8      0x100 ./Core/Src/tranposition.o
+                0x0000000008035cc8                G_6_TABLE
  .rodata.G_7_TABLE
-                0x0000000008035dc4       0x80 ./Core/Src/tranposition.o
-                0x0000000008035dc4                G_7_TABLE
+                0x0000000008035dc8       0x80 ./Core/Src/tranposition.o
+                0x0000000008035dc8                G_7_TABLE
  .rodata.G_SAMPLES
-                0x0000000008035e44       0x1c ./Core/Src/tranposition.o
-                0x0000000008035e44                G_SAMPLES
+                0x0000000008035e48       0x1c ./Core/Src/tranposition.o
+                0x0000000008035e48                G_SAMPLES
  .rodata.Gs_1_TABLE
-                0x0000000008035e60     0x1e1c ./Core/Src/tranposition.o
-                0x0000000008035e60                Gs_1_TABLE
+                0x0000000008035e64     0x1e1c ./Core/Src/tranposition.o
+                0x0000000008035e64                Gs_1_TABLE
  .rodata.Gs_2_TABLE
-                0x0000000008037c7c      0xf10 ./Core/Src/tranposition.o
-                0x0000000008037c7c                Gs_2_TABLE
+                0x0000000008037c80      0xf10 ./Core/Src/tranposition.o
+                0x0000000008037c80                Gs_2_TABLE
  .rodata.Gs_3_TABLE
-                0x0000000008038b8c      0x788 ./Core/Src/tranposition.o
-                0x0000000008038b8c                Gs_3_TABLE
+                0x0000000008038b90      0x788 ./Core/Src/tranposition.o
+                0x0000000008038b90                Gs_3_TABLE
  .rodata.Gs_4_TABLE
-                0x0000000008039314      0x3c4 ./Core/Src/tranposition.o
-                0x0000000008039314                Gs_4_TABLE
+                0x0000000008039318      0x3c4 ./Core/Src/tranposition.o
+                0x0000000008039318                Gs_4_TABLE
  .rodata.Gs_5_TABLE
-                0x00000000080396d8      0x1e4 ./Core/Src/tranposition.o
-                0x00000000080396d8                Gs_5_TABLE
+                0x00000000080396dc      0x1e4 ./Core/Src/tranposition.o
+                0x00000000080396dc                Gs_5_TABLE
  .rodata.Gs_6_TABLE
-                0x00000000080398bc       0xf4 ./Core/Src/tranposition.o
-                0x00000000080398bc                Gs_6_TABLE
+                0x00000000080398c0       0xf4 ./Core/Src/tranposition.o
+                0x00000000080398c0                Gs_6_TABLE
  .rodata.Gs_7_TABLE
-                0x00000000080399b0       0x7c ./Core/Src/tranposition.o
-                0x00000000080399b0                Gs_7_TABLE
+                0x00000000080399b4       0x7c ./Core/Src/tranposition.o
+                0x00000000080399b4                Gs_7_TABLE
  .rodata.Gs_SAMPLES
-                0x0000000008039a2c       0x1c ./Core/Src/tranposition.o
-                0x0000000008039a2c                Gs_SAMPLES
+                0x0000000008039a30       0x1c ./Core/Src/tranposition.o
+                0x0000000008039a30                Gs_SAMPLES
  .rodata.CSWTCH.53
-                0x0000000008039a48        0x3 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
- *fill*         0x0000000008039a4b        0x1 
+                0x0000000008039a4c        0x3 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
+ *fill*         0x0000000008039a4f        0x1 
  .rodata.CSWTCH.54
-                0x0000000008039a4c        0xd ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
-                0x0000000008039a5c                . = ALIGN (0x4)
- *fill*         0x0000000008039a59        0x3 
+                0x0000000008039a50        0xd ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
+                0x0000000008039a60                . = ALIGN (0x4)
+ *fill*         0x0000000008039a5d        0x3 
 
-.ARM.extab      0x0000000008039a5c        0x0
-                0x0000000008039a5c                . = ALIGN (0x4)
+.ARM.extab      0x0000000008039a60        0x0
+                0x0000000008039a60                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008039a5c                . = ALIGN (0x4)
+                0x0000000008039a60                . = ALIGN (0x4)
 
-.ARM            0x0000000008039a5c        0x8
-                0x0000000008039a5c                . = ALIGN (0x4)
-                0x0000000008039a5c                __exidx_start = .
+.ARM            0x0000000008039a60        0x8
+                0x0000000008039a60                . = ALIGN (0x4)
+                0x0000000008039a60                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0000000008039a5c        0x8 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
-                0x0000000008039a64                __exidx_end = .
-                0x0000000008039a64                . = ALIGN (0x4)
+ .ARM.exidx     0x0000000008039a60        0x8 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x0000000008039a68                __exidx_end = .
+                0x0000000008039a68                . = ALIGN (0x4)
 
-.rel.dyn        0x0000000008039a64        0x0
- .rel.iplt      0x0000000008039a64        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x0000000008039a68        0x0
+ .rel.iplt      0x0000000008039a68        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x0000000008039a64        0x0
-                0x0000000008039a64                . = ALIGN (0x4)
-                0x0000000008039a64                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008039a68        0x0
+                0x0000000008039a68                . = ALIGN (0x4)
+                0x0000000008039a68                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008039a64                PROVIDE (__preinit_array_end = .)
-                0x0000000008039a64                . = ALIGN (0x4)
+                0x0000000008039a68                PROVIDE (__preinit_array_end = .)
+                0x0000000008039a68                . = ALIGN (0x4)
 
-.init_array     0x0000000008039a64        0x4
-                0x0000000008039a64                . = ALIGN (0x4)
-                0x0000000008039a64                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008039a68        0x4
+                0x0000000008039a68                . = ALIGN (0x4)
+                0x0000000008039a68                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008039a64        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x0000000008039a68                PROVIDE (__init_array_end = .)
-                0x0000000008039a68                . = ALIGN (0x4)
+ .init_array    0x0000000008039a68        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0000000008039a6c                PROVIDE (__init_array_end = .)
+                0x0000000008039a6c                . = ALIGN (0x4)
 
-.fini_array     0x0000000008039a68        0x4
-                0x0000000008039a68                . = ALIGN (0x4)
+.fini_array     0x0000000008039a6c        0x4
+                0x0000000008039a6c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008039a68        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x0000000008039a6c        0x4 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008039a6c                . = ALIGN (0x4)
-                0x0000000008039a6c                _sidata = LOADADDR (.data)
+                0x0000000008039a70                . = ALIGN (0x4)
+                0x0000000008039a70                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0x190 load address 0x0000000008039a6c
+.data           0x0000000020000000      0x190 load address 0x0000000008039a70
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -5054,11 +5055,11 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x0000000020000190                . = ALIGN (0x4)
                 0x0000000020000190                _edata = .
 
-.igot.plt       0x0000000020000190        0x0 load address 0x0000000008039bfc
+.igot.plt       0x0000000020000190        0x0 load address 0x0000000008039c00
  .igot.plt      0x0000000020000190        0x0 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x0000000020000190                . = ALIGN (0x4)
 
-.bss            0x0000000020000190      0x2f0 load address 0x0000000008039bfc
+.bss            0x0000000020000190      0x2f0 load address 0x0000000008039c00
                 0x0000000020000190                _sbss = .
                 0x0000000020000190                __bss_start__ = _sbss
  *(.bss)
@@ -5114,11 +5115,11 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .bss.sustain_Gs
                 0x00000000200003c0        0x4 ./Core/Src/main.o
                 0x00000000200003c0                sustain_Gs
- .bss.buffer    0x00000000200003c4       0x20 ./Core/Src/menu.o
+ .bss.buffer    0x00000000200003c4       0x21 ./Core/Src/menu.o
                 0x00000000200003c4                buffer
  .bss.current_menu_item
-                0x00000000200003e4        0x1 ./Core/Src/menu.o
- *fill*         0x00000000200003e5        0x3 
+                0x00000000200003e5        0x1 ./Core/Src/menu.o
+ *fill*         0x00000000200003e6        0x2 
  .bss.sustain_flag
                 0x00000000200003e8        0x4 ./Core/Src/menu.o
                 0x00000000200003e8                sustain_flag
@@ -5238,7 +5239,7 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x0000000020000480                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020000480      0x600 load address 0x0000000008039bfc
+                0x0000000020000480      0x600 load address 0x0000000008039c00
                 0x0000000020000480                . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
                 0x0000000020000480                PROVIDE (_end = .)
@@ -5645,31 +5646,31 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0000000000027f74      0x218 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
  .debug_macro   0x000000000002818c      0x1ed ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.o
 
-.debug_line     0x0000000000000000    0x274ad
+.debug_line     0x0000000000000000    0x274b1
  .debug_line    0x0000000000000000      0xf88 ./Core/Src/main.o
- .debug_line    0x0000000000000f88      0xe56 ./Core/Src/menu.o
- .debug_line    0x0000000000001dde     0x11cd ./Core/Src/screen.o
- .debug_line    0x0000000000002fab      0xabe ./Core/Src/stm32l4xx_hal_msp.o
- .debug_line    0x0000000000003a69      0x994 ./Core/Src/stm32l4xx_it.o
- .debug_line    0x00000000000043fd      0x328 ./Core/Src/sustain.o
- .debug_line    0x0000000000004725      0x895 ./Core/Src/system_stm32l4xx.o
- .debug_line    0x0000000000004fba      0x7e6 ./Core/Src/tranposition.o
- .debug_line    0x00000000000057a0       0x7a ./Core/Startup/startup_stm32l476rgtx.o
- .debug_line    0x000000000000581a      0xca9 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
- .debug_line    0x00000000000064c3      0xdd1 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.o
- .debug_line    0x0000000000007294      0xf5e ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dac.o
- .debug_line    0x00000000000081f2      0xc9e ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dac_ex.o
- .debug_line    0x0000000000008e90     0x118f ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.o
- .debug_line    0x000000000000a01f      0xd66 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.o
- .debug_line    0x000000000000ad85     0x83f6 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.o
- .debug_line    0x000000000001317b      0xb02 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.o
- .debug_line    0x0000000000013c7d     0x10bf ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.o
- .debug_line    0x0000000000014d3c     0x152c ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
- .debug_line    0x0000000000016268     0x18d6 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
- .debug_line    0x0000000000017b3e     0x6839 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.o
- .debug_line    0x000000000001e377     0x21c7 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.o
- .debug_line    0x000000000002053e     0x5e8d ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
- .debug_line    0x00000000000263cb     0x10e2 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.o
+ .debug_line    0x0000000000000f88      0xe5a ./Core/Src/menu.o
+ .debug_line    0x0000000000001de2     0x11cd ./Core/Src/screen.o
+ .debug_line    0x0000000000002faf      0xabe ./Core/Src/stm32l4xx_hal_msp.o
+ .debug_line    0x0000000000003a6d      0x994 ./Core/Src/stm32l4xx_it.o
+ .debug_line    0x0000000000004401      0x328 ./Core/Src/sustain.o
+ .debug_line    0x0000000000004729      0x895 ./Core/Src/system_stm32l4xx.o
+ .debug_line    0x0000000000004fbe      0x7e6 ./Core/Src/tranposition.o
+ .debug_line    0x00000000000057a4       0x7a ./Core/Startup/startup_stm32l476rgtx.o
+ .debug_line    0x000000000000581e      0xca9 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.o
+ .debug_line    0x00000000000064c7      0xdd1 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_cortex.o
+ .debug_line    0x0000000000007298      0xf5e ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dac.o
+ .debug_line    0x00000000000081f6      0xc9e ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dac_ex.o
+ .debug_line    0x0000000000008e94     0x118f ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_dma.o
+ .debug_line    0x000000000000a023      0xd66 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.o
+ .debug_line    0x000000000000ad89     0x83f6 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c.o
+ .debug_line    0x000000000001317f      0xb02 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_i2c_ex.o
+ .debug_line    0x0000000000013c81     0x10bf ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.o
+ .debug_line    0x0000000000014d40     0x152c ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.o
+ .debug_line    0x000000000001626c     0x18d6 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc_ex.o
+ .debug_line    0x0000000000017b42     0x6839 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.o
+ .debug_line    0x000000000001e37b     0x21c7 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.o
+ .debug_line    0x0000000000020542     0x5e8d ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.o
+ .debug_line    0x00000000000263cf     0x10e2 ./Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.o
 
 .debug_str      0x0000000000000000    0xf8476
  .debug_str     0x0000000000000000    0xeef63 ./Core/Src/main.o

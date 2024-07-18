@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00004954  08000188  08000188  00010188  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00034f80  08004adc  08004adc  00014adc  2**2
+  2 .rodata       00034f84  08004adc  08004adc  00014adc  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08039a5c  08039a5c  00050190  2**0
+  3 .ARM.extab    00000000  08039a60  08039a60  00050190  2**0
                   CONTENTS
-  4 .ARM          00000008  08039a5c  08039a5c  00049a5c  2**2
+  4 .ARM          00000008  08039a60  08039a60  00049a60  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  08039a64  08039a64  00050190  2**0
+  5 .preinit_array 00000000  08039a68  08039a68  00050190  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  08039a64  08039a64  00049a64  2**2
+  6 .init_array   00000004  08039a68  08039a68  00049a68  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  08039a68  08039a68  00049a68  2**2
+  7 .fini_array   00000004  08039a6c  08039a6c  00049a6c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000190  20000000  08039a6c  00050000  2**2
+  8 .data         00000190  20000000  08039a70  00050000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000002f0  20000190  08039bfc  00050190  2**2
+  9 .bss          000002f0  20000190  08039c00  00050190  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20000480  08039bfc  00050480  2**0
+ 10 ._user_heap_stack 00000600  20000480  08039c00  00050480  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00050190  2**0
                   CONTENTS, READONLY
@@ -41,13 +41,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_macro  00028379  00000000  00000000  00090af9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   000274ad  00000000  00000000  000b8e72  2**0
+ 19 .debug_line   000274b1  00000000  00000000  000b8e72  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    000f8476  00000000  00000000  000e031f  2**0
+ 20 .debug_str    000f8476  00000000  00000000  000e0323  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_frame  00003968  00000000  00000000  001d8798  2**2
+ 21 .debug_frame  00003968  00000000  00000000  001d879c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000076  00000000  00000000  001dc100  2**0
+ 22 .debug_line_str 00000076  00000000  00000000  001dc104  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1099,7 +1099,7 @@ void Error_Handler(void)
 
 080009c0 <menu_init>:
 
-char buffer[32];
+char buffer[33];
 
 int sustain_flag = 0;
 
@@ -1133,19 +1133,21 @@ void menu_update_display(void) {
             lcd_write_multiline_string(buffer);
             break;
         case MENU_ITEM_TRANSPOSITION:
-            snprintf(buffer, sizeof(buffer), "Transposition: up inc, down dec");
+            snprintf(buffer, sizeof(buffer), "Transposition:  up inc, down dec");
  80009e0:	4d27      	ldr	r5, [pc, #156]	; (8000a80 <menu_init+0xc0>)
  80009e2:	4c28      	ldr	r4, [pc, #160]	; (8000a84 <menu_init+0xc4>)
  80009e4:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
  80009e6:	c40f      	stmia	r4!, {r0, r1, r2, r3}
- 80009e8:	e895 000f 	ldmia.w	r5, {r0, r1, r2, r3}
- 80009ec:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+ 80009e8:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+ 80009ea:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+ 80009ec:	682b      	ldr	r3, [r5, #0]
+ 80009ee:	7023      	strb	r3, [r4, #0]
             lcd_set_cursor(0, 0);
  80009f0:	2100      	movs	r1, #0
  80009f2:	4608      	mov	r0, r1
  80009f4:	f000 fba4 	bl	8001140 <lcd_set_cursor>
             lcd_write_multiline_string(buffer);
- 80009f8:	f1a4 0010 	sub.w	r0, r4, #16
+ 80009f8:	f1a4 0020 	sub.w	r0, r4, #32
 }
  80009fc:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
             lcd_write_multiline_string(buffer);
@@ -1220,7 +1222,7 @@ void menu_update_display(void) {
  8000a78:	e7f0      	b.n	8000a5c <menu_init+0x9c>
 }
  8000a7a:	bd38      	pop	{r3, r4, r5, pc}
- 8000a7c:	200003e4 	.word	0x200003e4
+ 8000a7c:	200003e5 	.word	0x200003e5
  8000a80:	08004b34 	.word	0x08004b34
  8000a84:	200003c4 	.word	0x200003c4
  8000a88:	08004adc 	.word	0x08004adc
@@ -1245,19 +1247,23 @@ void menu_update_display(void) {
  8000ab4:	3634      	.short	0x3634
  8000ab6:	03          	.byte	0x03
  8000ab7:	00          	.byte	0x00
-            snprintf(buffer, sizeof(buffer), "Transposition: up inc, down dec");
+            snprintf(buffer, sizeof(buffer), "Transposition:  up inc, down dec");
  8000ab8:	4d27      	ldr	r5, [pc, #156]	; (8000b58 <menu_update_display+0xb8>)
  8000aba:	4c28      	ldr	r4, [pc, #160]	; (8000b5c <menu_update_display+0xbc>)
  8000abc:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
  8000abe:	c40f      	stmia	r4!, {r0, r1, r2, r3}
- 8000ac0:	e895 000f 	ldmia.w	r5, {r0, r1, r2, r3}
- 8000ac4:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+ 8000ac0:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+ 8000ac2:	c40f      	stmia	r4!, {r0, r1, r2, r3}
             lcd_set_cursor(0, 0);
- 8000ac8:	2100      	movs	r1, #0
+ 8000ac4:	2100      	movs	r1, #0
+            snprintf(buffer, sizeof(buffer), "Transposition:  up inc, down dec");
+ 8000ac6:	682b      	ldr	r3, [r5, #0]
+ 8000ac8:	7023      	strb	r3, [r4, #0]
+            lcd_set_cursor(0, 0);
  8000aca:	4608      	mov	r0, r1
  8000acc:	f000 fb38 	bl	8001140 <lcd_set_cursor>
             lcd_write_multiline_string(buffer);
- 8000ad0:	f1a4 0010 	sub.w	r0, r4, #16
+ 8000ad0:	f1a4 0020 	sub.w	r0, r4, #32
             break;
         default:
             break;
@@ -1336,7 +1342,7 @@ void menu_update_display(void) {
  8000b50:	e7f0      	b.n	8000b34 <menu_update_display+0x94>
 }
  8000b52:	bd38      	pop	{r3, r4, r5, pc}
- 8000b54:	200003e4 	.word	0x200003e4
+ 8000b54:	200003e5 	.word	0x200003e5
  8000b58:	08004b34 	.word	0x08004b34
  8000b5c:	200003c4 	.word	0x200003c4
  8000b60:	08004adc 	.word	0x08004adc
@@ -1542,7 +1548,7 @@ void poll_buttons(void) {
  8000c98:	e7c4      	b.n	8000c24 <poll_buttons+0xac>
  8000c9a:	bf00      	nop
  8000c9c:	48000400 	.word	0x48000400
- 8000ca0:	200003e4 	.word	0x200003e4
+ 8000ca0:	200003e5 	.word	0x200003e5
  8000ca4:	200003e8 	.word	0x200003e8
 
 08000ca8 <lcd_init>:
@@ -3711,28 +3717,28 @@ void update_note_tables(){
  8001a18:	20000428 	.word	0x20000428
  8001a1c:	20000070 	.word	0x20000070
  8001a20:	20000430 	.word	0x20000430
- 8001a24:	08014acc 	.word	0x08014acc
+ 8001a24:	08014ad0 	.word	0x08014ad0
  8001a28:	20000434 	.word	0x20000434
- 8001a2c:	0801a478 	.word	0x0801a478
+ 8001a2c:	0801a47c 	.word	0x0801a47c
  8001a30:	2000043c 	.word	0x2000043c
- 8001a34:	0801f920 	.word	0x0801f920
- 8001a38:	08024904 	.word	0x08024904
+ 8001a34:	0801f924 	.word	0x0801f924
+ 8001a38:	08024908 	.word	0x08024908
  8001a3c:	20000444 	.word	0x20000444
- 8001a40:	0802946c 	.word	0x0802946c
+ 8001a40:	08029470 	.word	0x08029470
  8001a44:	20000454 	.word	0x20000454
  8001a48:	2000044c 	.word	0x2000044c
- 8001a4c:	0802db9c 	.word	0x0802db9c
+ 8001a4c:	0802dba0 	.word	0x0802dba0
  8001a50:	2000045c 	.word	0x2000045c
- 8001a54:	08031ed4 	.word	0x08031ed4
+ 8001a54:	08031ed8 	.word	0x08031ed8
  8001a58:	20000464 	.word	0x20000464
- 8001a5c:	08035e44 	.word	0x08035e44
+ 8001a5c:	08035e48 	.word	0x08035e48
  8001a60:	2000046c 	.word	0x2000046c
- 8001a64:	08039a2c 	.word	0x08039a2c
+ 8001a64:	08039a30 	.word	0x08039a30
  8001a68:	20000474 	.word	0x20000474
- 8001a6c:	0800840c 	.word	0x0800840c
- 8001a70:	0800b970 	.word	0x0800b970
+ 8001a6c:	08008410 	.word	0x08008410
+ 8001a70:	0800b974 	.word	0x0800b974
  8001a74:	2000041c 	.word	0x2000041c
- 8001a78:	0800ebd0 	.word	0x0800ebd0
+ 8001a78:	0800ebd4 	.word	0x0800ebd4
  8001a7c:	20000424 	.word	0x20000424
  8001a80:	2000042c 	.word	0x2000042c
 
@@ -4415,7 +4421,7 @@ LoopForever:
   ldr r1, =_edata
  8001f3c:	20000190 	.word	0x20000190
   ldr r2, =_sidata
- 8001f40:	08039a6c 	.word	0x08039a6c
+ 8001f40:	08039a70 	.word	0x08039a70
   ldr r2, =_sbss
  8001f44:	20000190 	.word	0x20000190
   ldr r4, =_ebss
@@ -7191,7 +7197,7 @@ static HAL_StatusTypeDef RCC_SetFlashLatencyFromMSIRange(uint32_t msirange)
  8002de6:	bf00      	nop
  8002de8:	40021000 	.word	0x40021000
  8002dec:	007a1200 	.word	0x007a1200
- 8002df0:	08004b6c 	.word	0x08004b6c
+ 8002df0:	08004b70 	.word	0x08004b70
  8002df4:	00f42400 	.word	0x00f42400
 
 08002df8 <HAL_RCC_OscConfig>:
@@ -7540,7 +7546,7 @@ static HAL_StatusTypeDef RCC_SetFlashLatencyFromMSIRange(uint32_t msirange)
  80030a4:	40021000 	.word	0x40021000
  80030a8:	40007000 	.word	0x40007000
  80030ac:	feeefffc 	.word	0xfeeefffc
- 80030b0:	08004b54 	.word	0x08004b54
+ 80030b0:	08004b58 	.word	0x08004b58
  80030b4:	2000018c 	.word	0x2000018c
  80030b8:	20000034 	.word	0x20000034
       if((READ_BIT(RCC->CR, RCC_CR_MSIRDY) != 0U) && (RCC_OscInitStruct->MSIState == RCC_MSI_OFF))
@@ -8133,7 +8139,7 @@ static HAL_StatusTypeDef RCC_SetFlashLatencyFromMSIRange(uint32_t msirange)
  800351a:	e78b      	b.n	8003434 <HAL_RCC_ClockConfig+0x6c>
  800351c:	40022000 	.word	0x40022000
  8003520:	40021000 	.word	0x40021000
- 8003524:	08004b54 	.word	0x08004b54
+ 8003524:	08004b58 	.word	0x08004b58
  8003528:	20000034 	.word	0x20000034
  800352c:	2000018c 	.word	0x2000018c
 
@@ -8153,7 +8159,7 @@ static HAL_StatusTypeDef RCC_SetFlashLatencyFromMSIRange(uint32_t msirange)
  8003544:	40d8      	lsrs	r0, r3
  8003546:	4770      	bx	lr
  8003548:	40021000 	.word	0x40021000
- 800354c:	08004b64 	.word	0x08004b64
+ 800354c:	08004b68 	.word	0x08004b68
  8003550:	20000034 	.word	0x20000034
 
 08003554 <HAL_RCC_GetPCLK2Freq>:
@@ -8172,7 +8178,7 @@ static HAL_StatusTypeDef RCC_SetFlashLatencyFromMSIRange(uint32_t msirange)
  8003568:	40d8      	lsrs	r0, r3
  800356a:	4770      	bx	lr
  800356c:	40021000 	.word	0x40021000
- 8003570:	08004b64 	.word	0x08004b64
+ 8003570:	08004b68 	.word	0x08004b68
  8003574:	20000034 	.word	0x20000034
 
 08003578 <RCCEx_PLLSAI1_Config>:
@@ -10814,9 +10820,9 @@ __STATIC_FORCEINLINE uint32_t __STREXW(uint32_t value, volatile uint32_t *addr)
  80046b8:	40004c00 	.word	0x40004c00
  80046bc:	40005000 	.word	0x40005000
  80046c0:	40021000 	.word	0x40021000
- 80046c4:	08039a4c 	.word	0x08039a4c
+ 80046c4:	08039a50 	.word	0x08039a50
  80046c8:	000ffcff 	.word	0x000ffcff
- 80046cc:	08039a48 	.word	0x08039a48
+ 80046cc:	08039a4c 	.word	0x08039a4c
  80046d0:	00f42400 	.word	0x00f42400
  80046d4:	01e84800 	.word	0x01e84800
 
@@ -11388,10 +11394,10 @@ __STATIC_FORCEINLINE uint32_t __STREXW(uint32_t value, volatile uint32_t *addr)
  8004aae:	4798      	blx	r3
  8004ab0:	3601      	adds	r6, #1
  8004ab2:	e7f2      	b.n	8004a9a <__libc_init_array+0x1e>
- 8004ab4:	08039a64 	.word	0x08039a64
- 8004ab8:	08039a64 	.word	0x08039a64
- 8004abc:	08039a64 	.word	0x08039a64
- 8004ac0:	08039a68 	.word	0x08039a68
+ 8004ab4:	08039a68 	.word	0x08039a68
+ 8004ab8:	08039a68 	.word	0x08039a68
+ 8004abc:	08039a68 	.word	0x08039a68
+ 8004ac0:	08039a6c 	.word	0x08039a6c
 
 08004ac4 <_init>:
  8004ac4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
