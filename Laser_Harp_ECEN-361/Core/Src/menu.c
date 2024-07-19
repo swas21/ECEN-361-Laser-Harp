@@ -28,7 +28,7 @@ char buffer[33];
 int sustain_flag = 0;
 
 void menu_init(void) {
-    current_menu_item = MENU_ITEM_OCTAVE;
+    current_menu_item = MENU_ITEM_SUSTAIN;
     current_setting_value = 0;
     lcd_init();
     menu_update_display();
