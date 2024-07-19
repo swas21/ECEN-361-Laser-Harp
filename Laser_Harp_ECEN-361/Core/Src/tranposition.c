@@ -241,7 +241,7 @@ int tranposition__note_update() {
 
 
 
-	return	wave_out * 12;
+	return	wave_out * 12/2;
 
 }
 
