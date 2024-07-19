@@ -7,7 +7,7 @@
 /_____/_/|_/ .___/\____/_/ /_/\___/_/ /_/\__/\__,_/_/_/  /_____/\___/\___/\__,_/\__, /    /_/  \__,_/_.___/_/\___/____/
           /_/                                                                  /____/
 *
-* Look up table for 2,500 values of an exponential decay. If read at 250Hz will produce a decay lasting 10s
+* Look up table for 2,500 values of an exponential decay. If read at 500Hz will produce a decay lasting 5s
 */
 
 const float decay_table[] = { 1.0, 0.9960079893439915, 0.9920319148370607,

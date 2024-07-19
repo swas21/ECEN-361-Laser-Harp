@@ -523,6 +523,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_C] = 0;
+			sustain_C = 0;
 		}
 		//active[NOTE_C] = !active[NOTE_C];
 
@@ -537,6 +538,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_Cs] = 0;
+			sustain_Cs = 0;
 		}
 		//active[NOTE_Cs] = !active[NOTE_Cs];
 		break;
@@ -550,6 +552,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_D] = 0;
+			sustain_D = 0;
 		}
 		break;
 
@@ -562,6 +565,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_Ds] = 0;
+			sustain_Ds = 0;
 		}
 		//active[NOTE_Ds] = !active[NOTE_Ds];
 		break;
@@ -575,6 +579,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_E] = 0;
+			sustain_E = 0;
 		}
 		//active[NOTE_E] = !active[NOTE_E];
 		break;
@@ -588,6 +593,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_F] = 0;
+			sustain_F = 0;
 		}
 		//active[NOTE_F] = !active[NOTE_F];
 		break;
@@ -601,6 +607,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_Fs] = 0;
+			sustain_Fs = 0;
 		}
 		//active[NOTE_Fs] = !active[NOTE_Fs];
 		break;
@@ -614,6 +621,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_G] = 0;
+			sustain_G = 0;
 		}
 		//active[NOTE_G] = !active[NOTE_G];
 		break;
@@ -627,6 +635,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_Gs] = 0;
+			sustain_Gs = 0;
 		}
 		//active[NOTE_Gs] = !active[NOTE_Gs];
 		break;
@@ -640,6 +649,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_A] = 0;
+			sustain_A = 0;
 		}
 		//active[NOTE_A] = !active[NOTE_A];
 		break;
@@ -653,6 +663,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_As] = 0;
+			sustain_As = 0;
 		}
 		//active[NOTE_As] = !active[NOTE_As];
 		break;
@@ -666,6 +677,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		else
 		{
 			active[NOTE_B] = 0;
+			sustain_B = 0;
 		}
 		//active[NOTE_B] = !active[NOTE_B];
 		break;

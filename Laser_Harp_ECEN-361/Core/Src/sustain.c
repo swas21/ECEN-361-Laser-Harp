@@ -88,7 +88,7 @@ void update_decay_values()
 		if(sustain_Ds)
 		{
 			decay_value_Ds = decay_table[decay_index_Ds];
-			decay_index_Cs++;
+			decay_index_Ds++;
 		}
 
 		if(sustain_E)
